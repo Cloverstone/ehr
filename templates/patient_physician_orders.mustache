@@ -1,0 +1,39 @@
+<!-- ***************************** TOP OF PAGE **************************************** -->
+<div id="page-physician-orders">
+  <div class="row header">
+    <div class="col-sm-3">
+      PHYSICIAN ORDERS
+    </div>
+    <div class="col-sm-9">
+      ELECTRONIC HEALTH RECORDS
+    </div>
+  </div>
+  <br>
+
+  {{>patient_summary}}
+  <table>
+    <tbody>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Order</th>
+        <th>Physician</th>
+        <th>Verified By</th>
+      </tr>
+
+      {{#data.physicians_orders}} {{#.}}
+      <tr>
+        <!-- use dot to access unnamed subarrays -->
+        <td>{{order_date}}</td>
+        <td>{{order_time}}</td>
+        <td>{{order}}</td>
+        <td>{{order_physician}}</td>
+        <td>{{order_verified_by}}</td>
+      </tr>
+      {{/.}} {{/data.physicians_orders}}
+    </tbody>
+  </table>
+  <br>
+</div>
+    <!-- id="page-physician-orders" -->
+    <!-- ***************************** BOTTOM OF PAGE **************************************** -->

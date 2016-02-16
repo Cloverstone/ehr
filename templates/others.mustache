@@ -1,0 +1,570 @@
+<!-- ***************************** START OF PATIENT SCENARIO ************************************** -->
+<div id="scenario-demo-joe">
+  <!-- ***************************** START OF SECTION ************************************** -->
+  <div id="section-general">
+
+
+
+    <!-- ***************************** TOP OF PAGE **************************************** -->
+    <div id="page-consent-to-care">
+
+      <div class="row header">
+        {{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}} Consent to Care
+      </div>
+
+
+      <div class="hospital-banner">
+        <span class="bu-dark-green">DECKER</span> <span class="bu-light-green">HOSPITAL</span>
+      </div>
+
+
+      <div class="row row-eq-height">
+        <div class="col-sm-3 text-left bu-light-green-box" style="vertical-align: top;">
+          Consent to Care
+        </div>
+
+
+        <div class="col-sm-9 text-right bu-dark-green-box" style="vertical-align: bottom;">
+          ELECTRONIC HEALTH RECORDS
+        </div>
+      </div>
+      <br>
+
+
+      <div class="row">
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Unit:</span> {{data.patient_information_form.healthcare_facility}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Acct #:</span> {{data.misc.account}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">DOB:</span> {{data.demographics.date_of_birth}}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Name:</span> {{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">MR #:</span> {{data.patient_information_form.medical_record_number}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Wt:</span> {{data.patient_information_form.weight}}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Doctor:</span> {{data.demographics.attending_physician}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Admit:</span> {{data.misc.admit}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Ht:</span> {{data.patient_information_form.height}}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-12 line-150">
+          <span class="field_name">Drug Allergies:</span> {{data.misc.drug_allergies}}
+        </div>
+      </div>
+      <br>
+
+
+      <div class="row">
+        <div class="col-sm-12 line-150">
+          <span class="field_name">DIAGNOSIS:</span> {{data.patient_information_form.diagnosis}}
+        </div>
+      </div>
+
+      <hr>
+
+
+      <p>Consent for Medical Treatment:</p>
+
+
+      <p>The undersigned hereby authorizes <span style="text-decoration: underline;">Dr.&nbsp;{{data.demographics.attending_physician}}</span> and his/her staff to examine and furnish the patient named above with all treatments, obtain all laboratory tests,
+        and provide medications and supplies as <span style="text-decoration: underline;">Dr.&nbsp;{{data.demographics.attending_physician}}</span> may deem necessary. This also acts as consent for the medical treatment of a minor when signed and witnessed
+        below by a legal guardian and the minor child.
+      </p>
+      <br>
+
+
+      <p><strong>Authorization for Release of Medical Information:</strong>
+      </p>
+
+
+      <p>Authorization is hereby granted for <span style="text-decoration: underline;">Dr.&nbsp;{{data.demographics.attending_physician}}</span> and/or his/her staff to release to the undersigned individual's insurance company or companies, their agents
+        or other third party payers, all confidential information (including copies of confidential medical/mental health records) as may be requested or necessary for the completion of claim processing related to my treatment.</p>
+
+
+      <p>The undersigned authorizes the direct payment of fees due to Decker Hospital and <span style="text-decoration: underline;">{{data.consent_to_care.payee}}</span> for services rendered, by the undersigned. I understand that I am financially responsible
+        for services rendered monthly.</p>
+      <br>
+
+
+      <div class="row line-250" style="text-align: center;">
+        <div class="col-sm-2" style="border-bottom: 2px solid;">
+          {{data.consent_to_care.consent_date}}
+        </div>
+
+
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-6 handwritten" style="border-bottom: 2px solid;">
+          {{data.consent_to_care.signatory}}
+        </div>
+
+
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-2" style="border-bottom: 2px solid;">
+          {{data.consent_to_care.relationship_to_patient}}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-2">
+          Date
+        </div>
+
+
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-6">
+          Patient / Legal Guardian
+        </div>
+
+
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-2">
+          Relationship to Patient
+        </div>
+      </div>
+      <br>
+
+
+      <div class="row line-250" style="text-align: center;">
+        <div class="col-sm-2" style="border-bottom: 2px solid;">
+          {{data.consent_to_care.consent_time}}
+        </div>
+
+
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-6 handwritten" style="border-bottom: 2px solid;">
+          {{data.consent_to_care.witnessing_staff}}
+        </div>
+
+
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-2">
+          &nbsp;
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-2">
+          Time
+        </div>
+
+
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-6">
+          Witnessing Staff
+        </div>
+
+
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-2">
+          &nbsp;
+        </div>
+      </div>
+      <br>
+      <br>
+
+
+      <div class="row row-eq-height" style="page-break-after: auto;">
+        <div class="col-sm-11" style="background-color: #274e13; border: solid; padding: 10px; border-width: 1px;">
+          <span style="color: white;">DECKER HOSPITAL ELECTRONIC HEALTH RECORD</span>
+        </div>
+
+
+        <div class="col-sm-1" style="background-color: #b6d7a8; border: solid; padding: 10px; border-width: 1px;">
+          &nbsp;
+        </div>
+      </div>
+    </div>
+    <!-- id="page-consent-to-care" -->
+    <!-- ***************************** BOTTOM OF PAGE **************************************** -->
+
+
+    <!-- ***************************** TOP OF PAGE **************************************** -->
+    <div id="page-surgical-consent">
+
+      <div class="row header">
+        {{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}} Surgical Consent
+      </div>
+
+
+      <div class="hospital-banner">
+        <span class="bu-dark-green">DECKER</span> <span class="bu-light-green">HOSPITAL</span>
+      </div>
+
+
+      <div class="row row-eq-height">
+        <div class="col-sm-3 text-left bu-light-green-box" style="vertical-align: top;">
+          Informed Consent to Surgical Procedure
+        </div>
+
+
+        <div class="col-sm-9 text-right bu-dark-green-box" style="vertical-align: bottom;">
+          ELECTRONIC HEALTH RECORDS
+        </div>
+      </div>
+      <br>
+
+
+      <div class="row">
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Unit:</span> {{data.patient_information_form.healthcare_facility}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Acct #:</span> {{data.misc.account}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">DOB:</span> {{data.demographics.date_of_birth}}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Name:</span> {{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">MR #:</span> {{data.patient_information_form.medical_record_number}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Wt:</span> {{data.patient_information_form.weight}}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Doctor:</span> {{data.demographics.attending_physician}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Admit:</span> {{data.misc.admit}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Ht:</span> {{data.patient_information_form.height}}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-12 line-150">
+          <span class="field_name">Drug Allergies:</span> {{data.misc.drug_allergies}}
+        </div>
+      </div>
+      <br>
+
+
+      <div class="row">
+        <div class="col-sm-12 line-150">
+          <span class="field_name">DIAGNOSIS:</span> {{data.patient_information_form.diagnosis}}
+        </div>
+      </div>
+
+      <hr>
+
+
+      <p><span style="padding-left: 1cm;">It</span> is very important to your doctor that you understand and consent to the treatment your doctor is rendering and any surgery your doctor may perform. You should be involved in any and all decisions concerning
+        the surgical procedure. Sign this form only after you understand the procedure, the risks, the alternatives, the risks associated with the alternatives, and all of your questions have been answered. Please initial and date directly bbelow this
+        paragraph indicating your understanding of this paragraph.</p>
+
+
+      <div class="row line-250" style="text-align: center;">
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-5 handwritten" style="border-bottom: 2px solid; text-align: center;">
+          {{data.consent_to_surgery.signatory_initials}}
+        </div>
+
+
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-2 handwritten" style="border-bottom: 2px solid; text-align: center;">
+          {{data.consent_to_surgery.consent_date}}
+        </div>
+
+
+        <div class="col-sm-3">
+          &nbsp;
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-5">
+          Patient Initials or Authorized Representative
+        </div>
+
+
+        <div class="col-sm-1">
+          &nbsp;
+        </div>
+
+
+        <div class="col-sm-2">
+          Date
+        </div>
+
+
+        <div class="col-sm-3">
+          &nbsp;
+        </div>
+      </div>
+      <br>
+      <br>
+
+
+      <div class="row row-eq-height" style="page-break-after: auto;">
+        <div class="col-sm-11" style="background-color: #274e13; border: solid; padding: 10px; border-width: 1px;">
+          <span style="color: white;">DECKER HOSPITAL ELECTRONIC HEALTH RECORD</span>
+        </div>
+
+
+        <div class="col-sm-1" style="background-color: #b6d7a8; border: solid; padding: 10px; border-width: 1px;">
+          &nbsp;
+        </div>
+      </div>
+    </div>
+    <!-- id="page-surgical-consent" -->
+    <!-- ***************************** BOTTOM OF PAGE **************************************** -->
+
+  </div>
+  <!-- id="section-general" -->
+  <!-- ***************************** END OF SECTION **************************************** -->
+
+
+
+
+
+  <!-- ***************************** START OF SECTION ************************************** -->
+  <div id="section-laboratory-and-tests">
+
+  </div>
+  <!-- id="section-laboratory-and-tests" -->
+  <!-- ***************************** END OF SECTION **************************************** -->
+
+
+
+
+  <!-- ***************************** START OF SECTION ************************************** -->
+  <div id="nurse-charting">
+
+
+  </div>
+  <!-- id="nurse-charting" -->
+  <!-- ***************************** END OF SECTION **************************************** -->
+
+</div>
+<!-- id="scenario-demo-joe" -->
+<!-- ***************************** END OF PATIENT SCENARIO **************************************** -->
+
+
+
+<!-- ================================================================================== -->
+<!-- ================================================================================== -->
+<!-- ================================================================================== -->
+<!-- ***************************** TOP OF PAGE **************************************** -->
+<!-- ***** BLANK PAGE TEMPLATE ***** -->
+<div id="page-BLANK-PAGE-TEMPLATE">
+
+  <div class="row header">
+    {{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}} START A NEW PAGE HERE
+  </div>
+
+
+  <div class="hospital-banner">
+    <span class="bu-dark-green">DECKER</span> <span class="bu-light-green">HOSPITAL</span>
+  </div>
+
+
+  <div class="row row-eq-height">
+    <div class="col-sm-3 text-left bu-light-green-box" style="vertical-align: top;">
+      START A NEW PAGE HERE
+    </div>
+
+
+    <div class="col-sm-9 text-right bu-dark-green-box" style="vertical-align: bottom;">
+      ELECTRONIC HEALTH RECORDS
+    </div>
+  </div>
+  <br>
+
+
+  <div class="row">
+    <div class="col-sm-4 line-150">
+      <span class="field_name">Unit:</span> {{data.patient_information_form.healthcare_facility}}
+    </div>
+
+
+    <div class="col-sm-4 line-150">
+      <span class="field_name">Acct #:</span> {{data.misc.account}}
+    </div>
+
+
+    <div class="col-sm-4 line-150">
+      <span class="field_name">DOB:</span> {{data.demographics.date_of_birth}}
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-4 line-150">
+      <span class="field_name">Name:</span> {{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}}
+    </div>
+
+
+    <div class="col-sm-4 line-150">
+      <span class="field_name">MR #:</span> {{data.patient_information_form.medical_record_number}}
+    </div>
+
+
+    <div class="col-sm-4 line-150">
+      <span class="field_name">Wt:</span> {{data.patient_information_form.weight}}
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-4 line-150">
+      <span class="field_name">Doctor:</span> {{data.demographics.attending_physician}}
+    </div>
+
+
+    <div class="col-sm-4 line-150">
+      <span class="field_name">Admit:</span> {{data.misc.admit}}
+    </div>
+
+
+    <div class="col-sm-4 line-150">
+      <span class="field_name">Ht:</span> {{data.patient_information_form.height}}
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-12 line-150">
+      <span class="field_name">Drug Allergies:</span> {{data.misc.drug_allergies}}
+    </div>
+  </div>
+  <br>
+
+
+  <div class="row">
+    <div class="col-sm-12 line-150">
+      <span class="field_name">DIAGNOSIS:</span> {{data.patient_information_form.diagnosis}}
+    </div>
+  </div>
+
+  <hr>
+
+
+  <h1>THIS IS PAGE TEMPLATE</h1>
+  <br>
+
+
+  <div class="row row-eq-height" style="page-break-after: auto;">
+    <div class="col-sm-11" style="background-color: #274e13; border: solid; padding: 10px; border-width: 1px;">
+      <span style="color: white;">DECKER HOSPITAL ELECTRONIC HEALTH RECORD</span>
+    </div>
+
+
+    <div class="col-sm-1" style="background-color: #b6d7a8; border: solid; padding: 10px; border-width: 1px;">
+      &nbsp;
+    </div>
+  </div>
+
+</div>
+<!-- id="page-BLANK-PAGE-TEMPLATE" -->
+<!-- ***************************** BOTTOM OF PAGE **************************************** -->
+<!-- ================================================================================== -->
+<!-- ================================================================================== -->
+<!-- ================================================================================== -->

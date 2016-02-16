@@ -1,0 +1,108 @@
+<!-- ***************************** TOP OF PAGE **************************************** -->
+<!-- ***** Medication Administration Record ***** -->
+<div id="page-medication-administration-record">
+  <div class="row header">
+    <div class="col-sm-6 col-md-4">
+      MEDICATION ADMINISTRATION RECORD
+    </div>
+    <div class="col-sm-6 col-md-8">
+      ELECTRONIC HEALTH RECORDS
+    </div>
+  </div>
+  <br>
+
+  {{>patient_summary}}
+
+  <div class="row">
+    <div class="col-sm-12 section-divider bu-light-green-background">
+      SCHEDULED MEDICATIONS
+    </div>
+    <table class="table table-bordered">
+      <tbody>
+        <tr class="success">
+          <th>Date</th>
+          <th>Order</th>
+          <th>Hour</th>
+          <th>Admin</th>
+          <th>Initials</th>
+        </tr>
+        {{#data.medication_administration_record.scheduled}} {{#.}}
+        <tr>
+          <!-- use dot to access unnamed subarrays -->
+          <td>{{order_date}}</td>
+          <td>{{order_text}}</td>
+          <td>{{scheduled_time}}</td>
+          {{^has_been_administered}}
+          <td class="success" style="cursor:pointer;color: #428bca;" data-name="{{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}}" data-order-text="{{order_text}}">Click to Administer</td>{{/has_been_administered}}
+          {{#has_been_administered}}
+          <td class="success">Administered</td>
+          {{/has_been_administered}}
+          <td>{{admin_initials}}{{#has_been_administered}}AS{{/has_been_administered}}</td>
+        </tr>
+        {{/.}} {{/data.medication_administration_record.scheduled}}
+      </tbody>
+    </table>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-12 section-divider bu-light-green-background">
+      PRN MEDICATIONS
+    </div>
+    <table class="table table-bordered">
+      <tbody>
+        <tr class="success">
+          <th>Date</th>
+          <th>Medication Order</th>
+          <th>Last Admin</th>
+          <th>Admin</th>
+          <th>Initials</th>
+        </tr>
+        {{#data.medication_administration_record.prn}} {{#.}}
+        <tr>
+          <!-- use dot to access unnamed subarrays -->
+          <td>{{order_date}}</td>
+          <td>{{order_text}}</td>
+          <td>{{last_admin_time}}</td>
+          <td class="success"><a href="javascript: alert('This does nothing yet');">Click to Administer</a></td>
+          <td>{{admin_initials}}</td>
+        </tr>
+        {{/.}} {{/data.medication_administration_record.prn}}
+      </tbody>
+    </table>
+  </div>
+  <br>
+
+  <div class="row row-eq-height">
+    <div class="col-sm-12 section-divider" style="background: #ED8675;">
+      DISCONTINUED MEDICATIONS
+    </div>
+    <table class="table table-bordered">
+      <tbody>
+        <tr class="danger">
+          <th>Date Ordered</th>
+          <th>Medication Order</th>
+          <th>Time Last Admin</th>
+          <th>Date Last Admin</th>
+          <th>Time Discontinued</th>
+          <th>Date Discontinued</th>
+        </tr>
+        {{#data.medication_administration_record.discontinued}} {{#.}}
+        <tr>
+          <!-- use dot to access unnamed subarrays -->
+
+          <td>{{order_date}}</td>
+          <td>{{order_text}}</td>
+          <td>{{last_admin_time}}</td>
+          <td>{{last_admin_date}}</td>
+          <td>{{discontinued_time}}</td>
+          <td>{{discontinued_date}}</td>
+        </tr>
+        {{/.}} {{/data.medication_administration_record.discontinued}}
+      </tbody>
+    </table>
+  </div>
+  <br>
+</div>
+<!-- id="page-medication-administration-record" -->
+<!-- ***************************** BOTTOM OF PAGE **************************************** -->

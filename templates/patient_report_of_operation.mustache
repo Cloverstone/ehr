@@ -1,0 +1,144 @@
+    <!-- ***************************** TOP OF PAGE **************************************** -->
+    <div id="page-report-of-operation">
+
+      <div class="row header">
+        <div class="col-sm-3">
+          Report of Operation
+        </div>
+        <div class="col-sm-9">
+          ELECTRONIC HEALTH RECORDS
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Unit:</span> {{data.patient_information_form.healthcare_facility}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Acct #:</span> {{data.misc.account}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">DOB:</span> {{data.demographics.date_of_birth}}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Name:</span> {{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">MR #:</span> {{data.patient_information_form.medical_record_number}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Wt:</span> {{data.patient_information_form.weight}}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Doctor:</span> {{data.demographics.attending_physician}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Admit:</span> {{data.misc.admit}}
+        </div>
+
+
+        <div class="col-sm-4 line-150">
+          <span class="field_name">Ht:</span> {{data.patient_information_form.height}}
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-12 line-150">
+          <span class="field_name">Drug Allergies:</span> {{data.misc.drug_allergies}}
+        </div>
+      </div>
+      <br>
+
+
+      <div class="row">
+        <div class="col-sm-12 line-150">
+          <span class="field_name">DIAGNOSIS:</span> {{data.patient_information_form.diagnosis}}
+        </div>
+      </div>
+
+      <hr>
+
+
+      <p><span class="field_name">Dictated by</span> {{data.report_of_operation.dictated_by}}
+      </p>
+
+
+      <p><span class="field_name">Dictated by</span> {{data.report_of_operation.dictated_by}}
+      </p>
+
+
+      <p><span class="field_name">DATE OF OPERATION:</span> {{data.report_of_operation.operation_date}}
+      </p>
+
+
+      <p><span class="field_name">TIME OF OPERATION:</span> {{data.report_of_operation.operation_time}}
+      </p>
+
+
+      <p><span class="field_name">PREOPERATIVE DIAGNOSIS:</span> {{data.report_of_operation.preoperative_diagnosis}}
+      </p>
+
+
+      <p><span class="field_name">POSTOPERATIVE DIAGNOSIS</span> {{data.report_of_operation.postoperative_diagnosis}}
+      </p>
+
+
+      <p><span class="field_name">OPERATION PERFORMED:</span> {{data.report_of_operation.operation_performed}}
+      </p>
+
+
+      <p><span class="field_name">SURGEON:</span> {{data.report_of_operation.surgeon}}
+      </p>
+
+
+      <p><span class="field_name">ASSISTANT:</span> {{data.report_of_operation.assistant}}
+      </p>
+
+
+      <p><span class="field_name">ANESTHESIA:</span> {{data.report_of_operation.anesthesia}}
+      </p>
+
+
+      <p><span class="field_name">ANESTHESIOLOGIST:</span> {{data.report_of_operation.anesthesiologist}}
+      </p>
+
+
+      <p><span class="field_name">SPECIMEN REMOVED:</span> {{data.report_of_operation.specimen_removed}}
+      </p>
+
+
+      <p><span class="field_name">BLOOD LOSS:</span> {{data.report_of_operation.blood_loss}}
+      </p>
+
+
+      <p><span class="field_name">FINDINGS:</span> {{data.report_of_operation.findings}}
+      </p>
+
+
+      <p><span class="field_name">DESCRIPTION OF THE OPERATION:</span> {{data.report_of_operation.description_of_the_operation}}
+      </p>
+      <br>
+
+    </div>
+    <!-- id="page-report-of-operation" -->
+    <!-- ***************************** BOTTOM OF PAGE **************************************** -->

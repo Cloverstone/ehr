@@ -1,0 +1,169 @@
+@import url(//fonts.googleapis.com/css?family=Dancing+Script|Lobster|Arizona);
+
+/*.header {
+    background: #f0f0f0;
+    padding: 10px 10px;
+}*/
+
+.hospital-banner {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 48pt;
+}
+
+.bu-dark-green {
+    color: #274e13;
+}
+
+.bu-dark-green-background {
+    background-color: #274e13;
+}
+
+.bu-light-green {
+    color: #b6d7a8;
+}
+
+.bu-light-green-background {
+    background-color: #b6d7a8;
+}
+
+.bu-dark-green-box {
+    color: #b6d7a8;
+    background-color: #274e13;
+    border: solid;
+    padding: 10px;
+    border-width: 1px; 
+    border-color: black;
+    font-weight: bold;
+}
+
+.bu-light-green-box {
+    color:  #274e13;
+    background-color: #b6d7a8;
+    border: solid;
+    padding: 10px;
+    border-width: 1px; 
+    border-color: black;
+    font-weight: bold;
+}
+
+.bu-red-box {
+    color:  black;
+    background-color: darkred;
+    border: solid;
+    padding: 10px;
+    border-width: 1px; 
+    border-color: black;
+    font-weight: bold;
+}
+
+.field_name {
+    font-weight: bold;
+    padding-right: 9px;
+}
+
+.line-150 {
+    line-height:150%;
+}
+
+
+.line-250 {
+    line-height:250%;
+}
+
+/* from http://getbootstrap.com.vn/examples/equal-height-columns/
+   experimental and won't work on IE 9 or earlier */
+/*.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}*/
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 9px;
+}
+
+.handwritten {
+    font-family: Dancing_Script, Lobster, Arizona, cursive, sans-serif;
+}
+
+.disabled-link{
+    pointer-events: none;
+    color: Grey;
+}
+
+
+/*****************************************/
+
+.list-group-ehr a.list-group-item{
+    background-color: #b6d7a8;
+    border-color: #000;
+    font-weight: bold;
+    color:#888;
+}
+.list-group-ehr .list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.list-group-ehr .list-group-item:last-child{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.list-group-ehr a[href].list-group-item {
+    color: #274e13;
+}
+
+.header.row > div{
+    border: solid 1px black;
+    padding:10px;
+    height:80px;
+}
+.header.row >div:first-child {    
+    color:  #274e13;
+    background-color: #b6d7a8;
+    font-size: 22px;
+    font-weight: bold;
+
+}
+.header.row >div:last-child {
+    text-align: right;
+    padding-top: 50px;    
+    color: #b6d7a8;
+    background-color: #274e13;
+    border-left:0;
+}
+.footer.row > div{
+    border: solid 1px #000;
+    padding: 10px;
+}
+.footer.row >div:first-child {    
+    background-color: #274e13;
+    color:#fff;
+}
+.footer.row >div:last-child {
+    background-color: #b6d7a8;
+    border-left:0;
+}
+
+.section.row > div{
+    background-color: #274e13;
+    border: solid 1px #000;
+    padding: 10px;
+    color: #fff;
+    margin-left: 15px;
+    color: #b6d7a8;
+    font-weight: bold;
+}
+
+.section-divider{
+    /*background-color: #b6d7a8;*/
+    text-align: center;
+    padding: 5px;
+    border: solid 1px;
+    margin-bottom: 10px;
+}
