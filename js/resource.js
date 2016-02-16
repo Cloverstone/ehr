@@ -39,8 +39,8 @@ pages = {
 			// })
 			.on('change', function(item){
 				qrcode.callback = function(data){
-					console.log(data)
-				}
+					$('.hospital-banner').html(data)
+					}
 				processFile.call(this.findByID(item.id).$el[0]);
 			})
 		})
