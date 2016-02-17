@@ -75,5 +75,10 @@ pages = {
 				processFile.call(this.findByID(item.id).$el[0]);
 			})
 		})
+	},
+	scenario_form: function(){
+		$('#form').berry({flatten:false,attributes:data,fields:getItems(data)})
 	}
+
 };
+
