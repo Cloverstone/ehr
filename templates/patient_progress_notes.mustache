@@ -10,72 +10,7 @@
   </div>
   <br>
 
-  <div class="row">
-    <div class="col-sm-4 line-150">
-      <span class="field_name">Unit:</span> {{data.patient_information_form.healthcare_facility}}
-    </div>
-
-
-    <div class="col-sm-4 line-150">
-      <span class="field_name">Acct #:</span> {{data.misc.account}}
-    </div>
-
-
-    <div class="col-sm-4 line-150">
-      <span class="field_name">DOB:</span> {{data.demographics.date_of_birth}}
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-sm-4 line-150">
-      <span class="field_name">Name:</span> {{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}}
-    </div>
-
-
-    <div class="col-sm-4 line-150">
-      <span class="field_name">MR #:</span> {{data.patient_information_form.medical_record_number}}
-    </div>
-
-
-    <div class="col-sm-4 line-150">
-      <span class="field_name">Wt:</span> {{data.patient_information_form.weight}}
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-sm-4 line-150">
-      <span class="field_name">Doctor:</span> {{data.demographics.attending_physician}}
-    </div>
-
-
-    <div class="col-sm-4 line-150">
-      <span class="field_name">Admit:</span> {{data.misc.admit}}
-    </div>
-
-
-    <div class="col-sm-4 line-150">
-      <span class="field_name">Ht:</span> {{data.patient_information_form.height}}
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-sm-12 line-150">
-      <span class="field_name">Drug Allergies:</span> {{data.misc.drug_allergies}}
-    </div>
-  </div>
-  <br>
-
-
-  <div class="row">
-    <div class="col-sm-12 line-150">
-      <span class="field_name">DIAGNOSIS:</span> {{data.patient_information_form.diagnosis}}
-    </div>
-  </div>
-
-  <hr>
+ {{>patient_summary}}
 
   <table>
     <tbody>

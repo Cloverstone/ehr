@@ -27,19 +27,7 @@ pages = {
 			},		
 			satisfied: function(){
 				return this.success
-			},
-			// update: function(silent){
-			// 	if(typeof item === 'object') {
-			// 		$.extend(this.item, item);
-			// 	}
-			// 	$.extend(this, this.item);
-			// 	this.setValue(this.value);
-			// 	this.render();
-			// 	this.setup();
-			// 	if( !silent ) {
-			// 		this.trigger('change');
-			// 	}
-			// }
+			}
 		});
 
 		$('[data-order-text]').on('click', function(e){
