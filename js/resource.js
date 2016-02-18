@@ -64,8 +64,20 @@ pages = {
 			})
 		})
 	},
-	scenario_form: function(){
-		$('#form').berry({flatten:false,attributes:data,fields:getItems(data)})
+	form: function(){
+		switch(hashParams.form) {
+			case 'patient_information':				
+				$('#form').berry({flatten: false, attributes: data, fields: {
+					'First Name': {},
+					'Middle Name': {},
+					'Last Name': {},
+					'Medical Record Number':{}
+				}});
+
+				break;
+			default:
+				$('#form').berry({flatten: false, attributes: data, fields: getItems(data)});
+		}
 	}
 
 };

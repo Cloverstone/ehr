@@ -9,16 +9,16 @@
   </div>
 
   <div class="list-group list-group-ehr">
-    <a class="list-group-item">Demographics</a>
+    <a href="#page=patient_demographics&patient={{hash.patient}}" class="list-group-item">Demographics</a>
     <a href="#page=patient_history&patient={{hash.patient}}" class="list-group-item">History and Physical</a>
     <a href="#page=patient_physician_orders&patient={{hash.patient}}" class="list-group-item">Physicians' Orders</a>
     <a href="#page=patient_progress_notes&patient={{hash.patient}}" class="list-group-item">Progress Notes</a>
     <a href="#page=patient_report_of_operation&patient={{hash.patient}}" class="list-group-item">Report of Operation</a>
     <a class="list-group-item">Consultations</a>
-    <a class="list-group-item">Consents and Releases (consent to care)</a>
-    <a class="list-group-item">Consents and Releases (surgical consent)</a>
+    <a href="#page=patient_consent_to_care&patient={{hash.patient}}" class="list-group-item">Consents and Releases (consent to care)</a>
+    <a href="#page=patient_surgical_consent&patient={{hash.patient}}" class="list-group-item">Consents and Releases (surgical consent)</a>
     <a class="list-group-item">Discharge Summary</a>
-    <a class="list-group-item">Plan of Care</a>
+    <a href="#page=patient_plan_of_care&patient={{hash.patient}}" class="list-group-item">Plan of Care</a>
     <a class="list-group-item">I&O and Vital Signs Summary</a>
   </div>
 
@@ -39,7 +39,7 @@
   </div>
   <div class="list-group list-group-ehr">
     <a href="#page=medical_admin_record&patient={{hash.patient}}" class="list-group-item">Medication Administration Record</a>
-    <a class="list-group-item">Shift Assessment</a>
+    <a href="#page=patient_assesments&patient={{hash.patient}}" class="list-group-item">Shift Assessment</a>
     <a class="list-group-item">Nursing Notes</a>
   </div>
 

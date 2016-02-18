@@ -1,0 +1,38 @@
+<div id="page-history-and-physical">
+  <div class="row header">
+    <div class="col-sm-3">
+      PLAN OF CARE
+    </div>
+    <div class="col-sm-9">
+      ELECTRONIC HEALTH RECORDS
+    </div>
+  </div>
+
+  {{>patient_summary}}
+  <div class="row">
+    <div class="col-sm-12 section-divider bu-light-green-background">
+      ORDERS
+    </div>
+    <table class="table table-bordered">
+      <tbody>
+        <tr class="success">
+          <th>Diet</th>
+          <th>Activity / Transfer</th>
+          <th>Vital Signs</th>
+          <th>I&O</th>
+          <th>Neuro Checks</th>
+        </tr>
+        {{#prn}}
+        <tr>
+          <td>{{order_date}}</td>
+          <td>{{order_text}}</td>
+          <td>{{last_admin_time}}</td>
+          <td class="success"><a href="javascript: alert('This does nothing yet');">Click to Administer</a></td>
+          <td>{{admin_initials}}</td>
+        </tr>
+        {{/prn}}
+      </tbody>
+    </table>
+  </div>
+
+</div>

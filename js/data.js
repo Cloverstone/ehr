@@ -432,7 +432,7 @@ this.data =
 		"room": "",
 		"contact_precautions": "None",
 		"advanced_directives": "No",
-		"health_care_proxy": "",
+		"health_care_proxy": "Yes",
 		"emergency_contact": "Jane Demo"
 	},
 	"vital_signs_form":
