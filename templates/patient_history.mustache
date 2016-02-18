@@ -1,6 +1,4 @@
-<!-- ***************************** TOP OF PAGE **************************************** -->
 <div id="page-history-and-physical">
-
   <div class="row header">
     <div class="col-sm-3">
       HISTORY AND PHYSICAL
@@ -9,87 +7,30 @@
       ELECTRONIC HEALTH RECORDS
     </div>
   </div>
-  <br>
 
   {{>patient_summary}}
 
+  {{#data.history_and_physical}}
   <div class="fieldlist">
-      <div><span>DATE COMPLETED:</span> {{data.history_and_physical.completed_when}}</div>
-
+      <div><span>DATE COMPLETED:</span> {{completed_when}}</div>
+      <div><span>HISTORY OF PRESENT CONDITION:</span> {{history_of_present_condition}}</div>
+      <div><span>PAST MEDICAL HISTORY:</span> {{past_medical_history}}</div>
+      <div><span>PAST SURGICAL HISTORY:</span> {{past_surgical_history}}</div>
+      <div><span>SOCIAL HISTORY:</span> {{social_history}}</div>
+      <div><span>REGULAR MEDICATIONS:</span> {{regular_medications}}</div>
+      <div><span>IMMUNIZATIONS:</span> {{immunizations}}</div>
+      <div><span>ALLERGIES:</span> {{allergies}}</div>
+      <div><span>VS:</span> {{vs}}</div>
+      <div><span>NEURO:</span> {{neuro}}</div>
+      <div><span>HEENT:</span> {{heent}}</div>
+      <div><span>CARDIAC:</span> {{cardiac}}</div>
+      <div><span>RESPIRATORY:</span> {{respiratory}}</div>
+      <div><span>GI:</span> {{gi}}</div>
+      <div><span>GU:</span> {{gu}}</div>
+      <div><span>SKIN:</span> {{skin}}</div>
+      <div><span>MUSCULOSKELETAL:</span> {{musculoskeletal}}</div>
+      <div><span>PLAN:</span> {{plan}}</div>
+      <div><span>Dictated by::</span> {{dictated_by}}</div>
   </div>
-
-
-  <p><span class="field_name">DATE COMPLETED:</span> {{data.history_and_physical.completed_when}}
-  </p>
-
-
-  <p><span class="field_name">HISTORY OF PRESENT CONDITION:</span> {{data.history_and_physical.history_of_present_condition}}
-  </p>
-
-
-  <p><span class="field_name">PAST MEDICAL HISTORY:</span> {{data.history_and_physical.past_medical_history}}
-  </p>
-
-
-  <p><span class="field_name">PAST SURGICAL HISTORY:</span> {{data.history_and_physical.past_surgical_history}}
-  </p>
-
-
-  <p><span class="field_name">SOCIAL HISTORY:</span> {{data.history_and_physical.social_history}}
-  </p>
-
-
-  <p><span class="field_name">REGULAR MEDICATIONS:</span> {{data.history_and_physical.regular_medications}}
-  </p>
-
-
-  <p><span class="field_name">IMMUNIZATIONS:</span> {{data.history_and_physical.immunizations}}
-  </p>
-
-
-  <p><span class="field_name">ALLERGIES:</span> {{data.history_and_physical.allergies}}
-  </p>
-
-
-  <p><span class="field_name">VS:</span> {{data.history_and_physical.vs}}</p>
-
-
-  <p><span class="field_name">NEURO:</span> {{data.history_and_physical.neuro}}
-  </p>
-
-
-  <p><span class="field_name">HEENT:</span> {{data.history_and_physical.heent}}
-  </p>
-
-
-  <p><span class="field_name">CARDIAC:</span> {{data.history_and_physical.cardiac}}
-  </p>
-
-
-  <p><span class="field_name">RESPIRATORY:</span> {{data.history_and_physical.respiratory}}
-  </p>
-
-
-  <p><span class="field_name">GI:</span> {{data.history_and_physical.gi}}</p>
-
-
-  <p><span class="field_name">GU:</span> {{data.history_and_physical.gu}}</p>
-
-
-  <p><span class="field_name">SKIN:</span> {{data.history_and_physical.skin}}</p>
-
-
-  <p><span class="field_name">MUSCULOSKELETAL:</span> {{data.history_and_physical.musculoskeletal}}
-  </p>
-
-
-  <p><span class="field_name">PLAN:</span> {{data.history_and_physical.plan}}</p>
-
-
-  <p><span class="field_name">Dictated by:</span> {{data.history_and_physical.dictated_by}}
-  </p>
-
-  <br>
+  {{/data.history_and_physical}}
 </div>
-<!-- id="page-history-and-physical" -->
-<!-- ***************************** BOTTOM OF PAGE **************************************** -->

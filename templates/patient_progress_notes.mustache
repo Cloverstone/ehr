@@ -1,4 +1,3 @@
-<!-- ***************************** TOP OF PAGE **************************************** -->
 <div id="page-progress-notes">
   <div class="row header">
     <div class="col-sm-3">
@@ -8,48 +7,27 @@
       ELECTRONIC HEALTH RECORDS
     </div>
   </div>
-  <br>
 
  {{>patient_summary}}
 
   <table>
     <tbody>
-      {{#data.progress_notes}} {{#.}}
+      {{#data.progress_notes}}
       <tr>
-        <td style="padding: 0px;">
-          <div class="bu-light-green-box">
-            Date
-          </div>
-        </td>
-
+        <td class="bu-light-green-box">Date</td>
         <td>{{progress_note_date}}</td>
 
-        <td style="padding: 0px;">
-          <div class="bu-light-green-box">
-            Time
-          </div>
-        </td>
-
+        <td class="bu-light-green-box">Time</td>
         <td>{{progress_note_time}}</td>
 
-        <td style="padding: 0px;">
-          <div class="bu-light-green-box">
-            Documentation by
-          </div>
-        </td>
-
+        <td class="bu-light-green-box">Documentation by</td>
         <td>{{progress_note_documentation_by}}</td>
       </tr>
-
-
       <tr>
         <td colspan="6">{{progress_note}}</td>
       </tr>
-      {{/.}} {{/data.progress_notes}}
+      {{/data.progress_notes}}
     </tbody>
   </table>
   <br>
-
 </div>
-<!-- id="page-progress-notes" -->
-<!-- ***************************** BOTTOM OF PAGE **************************************** -->

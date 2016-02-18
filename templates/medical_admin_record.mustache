@@ -1,5 +1,3 @@
-<!-- ***************************** TOP OF PAGE **************************************** -->
-<!-- ***** Medication Administration Record ***** -->
 <div id="page-medication-administration-record">
   <div class="row header">
     <div class="col-sm-6 col-md-4">
@@ -9,10 +7,9 @@
       ELECTRONIC HEALTH RECORDS
     </div>
   </div>
-  <br>
 
   {{>patient_summary}}
-
+  {{#data.medication_administration_record}}
   <div class="row">
     <div class="col-sm-12 section-divider bu-light-green-background">
       SCHEDULED MEDICATIONS
@@ -26,9 +23,8 @@
           <th>Admin</th>
           <th>Initials</th>
         </tr>
-        {{#data.medication_administration_record.scheduled}} {{#.}}
+        {{#scheduled}}
         <tr>
-          <!-- use dot to access unnamed subarrays -->
           <td>{{order_date}}</td>
           <td>{{order_text}}</td>
           <td>{{scheduled_time}}</td>
@@ -37,13 +33,12 @@
           {{#has_been_administered}}
           <td class="success">Administered</td>
           {{/has_been_administered}}
-          <td>{{admin_initials}}{{#has_been_administered}}AS{{/has_been_administered}}</td>
+          <td>{{#has_been_administered}}AS{{admin_initials}}{{/has_been_administered}}</td>
         </tr>
-        {{/.}} {{/data.medication_administration_record.scheduled}}
+        {{/scheduled}}
       </tbody>
     </table>
   </div>
-  <br>
 
   <div class="row">
     <div class="col-sm-12 section-divider bu-light-green-background">
@@ -58,20 +53,18 @@
           <th>Admin</th>
           <th>Initials</th>
         </tr>
-        {{#data.medication_administration_record.prn}} {{#.}}
+        {{#prn}}
         <tr>
-          <!-- use dot to access unnamed subarrays -->
           <td>{{order_date}}</td>
           <td>{{order_text}}</td>
           <td>{{last_admin_time}}</td>
           <td class="success"><a href="javascript: alert('This does nothing yet');">Click to Administer</a></td>
           <td>{{admin_initials}}</td>
         </tr>
-        {{/.}} {{/data.medication_administration_record.prn}}
+        {{/prn}}
       </tbody>
     </table>
   </div>
-  <br>
 
   <div class="row row-eq-height">
     <div class="col-sm-12 section-divider" style="background: #ED8675;">
@@ -87,10 +80,8 @@
           <th>Time Discontinued</th>
           <th>Date Discontinued</th>
         </tr>
-        {{#data.medication_administration_record.discontinued}} {{#.}}
+        {{#discontinued}}
         <tr>
-          <!-- use dot to access unnamed subarrays -->
-
           <td>{{order_date}}</td>
           <td>{{order_text}}</td>
           <td>{{last_admin_time}}</td>
@@ -98,11 +89,9 @@
           <td>{{discontinued_time}}</td>
           <td>{{discontinued_date}}</td>
         </tr>
-        {{/.}} {{/data.medication_administration_record.discontinued}}
+        {{/discontinued}}
       </tbody>
     </table>
   </div>
-  <br>
+  {{/data.medication_administration_record}}
 </div>
-<!-- id="page-medication-administration-record" -->
-<!-- ***************************** BOTTOM OF PAGE **************************************** -->
