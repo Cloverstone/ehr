@@ -71,9 +71,106 @@ pages = {
 					'First Name': {},
 					'Middle Name': {},
 					'Last Name': {},
-					'Medical Record Number':{}
+					'Medical Record Number': {},
+					'Marital Status': {
+						options: ['Married', 'Married - Not Living Together', 'Significant Other', 'Single', 'Divorced', 'Widowed', 'Unknown', 'Other']
+					},
+					'Gender': {
+						options: ['Female', 'Male', 'Ambiguous', 'Unknown', 'Other']
+					},
+					'Age': {},
+					'Height': {},
+					'Weight': {},
+					'Race': {
+						options: ['American Indian / Alaska Native', 'Asian', 'Asian Indian', 'Black / African American', 'Chinese', 'Filipino', 'Guamanian / Chamorro', 'Japanese', 'Korean', 'Native Hawaiian', 'Pacific Islander', 'Samoan', 'Viernamese', 'White / Caucasian', 'Unknown', 'Other']
+					},
+					'Religion': {
+						options: ['Agnostic/Atheist', 'Buddhist', 'Christian', 'Hindu', 'Humanist', 'Jewish', 'Muslim', 'Native American', 'Irreligion/No Religion', 'Pagan', 'Sikh', 'Spititualist', 'Unitarian/Universalist', 'Wiccan', 'Unknown', 'Other']
+					},
+					'Occupation': {},
+					'Employer': {},
+					'Insurance': {},
+					'Diagnosis': {},
+					'Admitted On': {},
+					'Healthcare Facility': {},
+					'Room': {},
+					'Contact Precaution': {
+						options: ['Standard', 'Contact', 'Droplet', 'Airborn']
+					},
+					'Advanced Directive': {
+						options: ['Full Code', 'No Code', 'Meds Only', 'No CPR']
+					},
+					'Health Care Proxy': { type: 'select',
+						options: ['Yes', 'No']
+					},
+					'Emergency Contact': {}
 				}});
-
+				break;			
+			case 'vital_signs':				
+				$('#form').berry({flatten: false, attributes: data, fields: {
+					'Blood Pressure': {fields: {
+						'Systolic': {},
+						'Diastolic': {},
+						'Location': {help: 'Cuff', options: ['LUE', 'RUE', 'Left Forearm', 'Right Forearm', 'Left Thigh', 'Right Thigh']},
+						'Position': {options: ['Sitting ', 'Standing ', 'Supine', 'Prone', 'Left Side Lying', 'Right Side Lying']},
+					}},
+					'Heart Rate': {fields: {
+						'Beats per Minute': {},
+						'Location': {help: 'Arterial', options: ['Left Radial', 'Right Radial', 'Left Brachial', 'Right Brachial', 'Left Femoral', 'Right Femoral']},
+						}
+					},
+					'Respiratory': {fields: {
+						'Breaths per Minute': {},
+						'SpO2': {},
+						}
+					},
+					'Temperature': {fields: {
+						'F': {},
+						'Route': {options: ['Oral', 'Rectal', 'Tympanic', 'Core', 'Axillary ']},
+						'Notes': {type: 'textarea'}
+						}
+					}
+				}});
+				break;
+			case 'intake_output':				
+				$('#form').berry({flatten: false, attributes: data, fields: {
+					'Shift': {label:false, options: ['Day Shift', 'Evening Shift', 'Night Shift']},
+					'Sample Question 2': {},
+					'Intake': {fields: {
+						'Oral': {help: 'in mLs'},
+						'IV': {help: 'in mLs'},
+						'Blood': {help: 'in mLs'},
+						'Other': {help: 'in mLs'},
+					}},
+					'Output': {fields: {
+						'Urine': {help: 'in mLs'},
+						'Stool (liquid)': {help: 'in mLs'},
+						'Emesis': {help: 'in mLs'},
+						'Gastric Tube': {help: 'in mLs'},
+						'Drainage Tubes': {help: 'in mLs'},
+						'Other': {},
+					}}
+				}});
+				break;
+			case 'genitourinary':				
+				$('#form').berry({flatten: false, attributes: data, fields: {
+					'Shift': {label:false, options: ['Day Shift', 'Evening Shift', 'Night Shift']},
+					'Sample Question 2': {},
+					'Intake': {fields: {
+						'Oral': {help: 'in mLs'},
+						'IV': {help: 'in mLs'},
+						'Blood': {help: 'in mLs'},
+						'Other': {help: 'in mLs'},
+					}},
+					'Output': {fields: {
+						'Urine': {help: 'in mLs'},
+						'Stool (liquid)': {help: 'in mLs'},
+						'Emesis': {help: 'in mLs'},
+						'Gastric Tube': {help: 'in mLs'},
+						'Drainage Tubes': {help: 'in mLs'},
+						'Other': {},
+					}}
+				}});
 				break;
 			default:
 				$('#form').berry({flatten: false, attributes: data, fields: getItems(data)});
@@ -81,4 +178,6 @@ pages = {
 	}
 
 };
+
+
 
