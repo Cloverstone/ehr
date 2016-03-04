@@ -54,8 +54,12 @@ function store(){
 }
 function clear(){
 	$.jStorage.set('session', JSON.stringify({}));
+	for(var i in forms){
+		$.jStorage.set(i, {});
+	}
 	document.location.reload();
 }
+
 
 
 
@@ -96,5 +100,105 @@ var QueryStringToHash = function QueryStringToHash  (query) {
 //     while (match = search.exec(query))
 //        urlParams[decode(match[1])] = decode(match[2]);
 // })();
+
+
+
+
+
+
+
+(function(b, $){
+	b.register({ type: 'radio_collection',
+		create: function() {
+			this.options = b.processOpts.call(this.owner, this.item, this).options;
+			return b.render('berry_' + (this.elType || this.type), this);
+		},
+		setup: function() {
+			this.$el = this.self.find('[type=radio]');
+			this.$el.off();
+			if(this.onchange !== undefined) {
+				this.on('change', this.onchange);
+			}
+			this.$el.change($.proxy(function(){this.trigger('change');}, this));
+		},
+		getValue: function() {
+			var values = {}
+			for(var label in this.labels){
+				// debugger;
+				var selected = this.self.find('[name='+this.labels[label].name+'][type="radio"]:checked').data('label');
+				for(var i in this.item.options) {
+					if(this.item.options[i].label == selected) {
+						values[this.labels[label].name] = this.item.options[i].value;
+						// return this.item.options[i].value;
+					}
+				}
+			}
+			return values;
+		},
+		setValue: function(value) {
+			this.value = value;
+			for(var i in this.labels){
+				this.self.find('[name='+this.labels[i].name+'][value="' + this.value[this.labels[i].name] + '"]').prop('checked', true);
+			}
+		},
+		// set: function(value){
+		// 	if(this.value != value) {
+		// 		//this.value = value;
+		// 		this.setValue(value);
+		// 		this.trigger('change');
+		// 	}
+		// },
+		displayAs: function() {
+			for(var i in this.item.options) {
+				if(this.item.options[i].value == this.lastSaved) {
+					return this.item.options[i].label;
+				}
+			}
+		},
+		focus: function(){
+			this.self.find('[name='+this.labels[0].name+'][type="radio"]:checked').focus();
+		}
+	});
+})(Berry, jQuery);
+
+
+(function(b, $){
+	b.register({ type: 'scale',
+		create: function() {
+			this.options = b.processOpts.call(this.owner, this.item, this).options;
+			return b.render('berry_' + (this.elType || this.type), this);
+		},
+		setup: function() {
+			this.$el = this.self.find('[type=radio]');
+			this.$el.off();
+			if(this.onchange !== undefined) {
+				this.on('change', this.onchange);
+			}
+			this.$el.change($.proxy(function(){this.trigger('change');}, this));
+		},
+		getValue: function() {
+			var selected = this.self.find('[type="radio"]:checked').data('label');
+			for(var i in this.item.options) {
+				if(this.item.options[i].label == selected) {
+					return this.item.options[i].value;
+				}
+			}
+		},
+		setValue: function(value) {
+			this.value = value;
+			this.self.find('[value="' + this.value + '"]').prop('checked', true);
+		},
+		displayAs: function() {
+			for(var i in this.item.options) {
+				if(this.item.options[i].value == this.lastSaved) {
+					return this.item.options[i].label;
+				}
+			}
+		},
+		focus: function(){
+			this.self.find('[type="radio"]:checked').focus();
+		}
+	});
+})(Berry, jQuery);
 
 

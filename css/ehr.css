@@ -57,10 +57,10 @@
   display:         flex;
 }*/
 
-table, th, td {
+/*table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
-}
+}*/
 th, td {
     padding: 9px;
 }
@@ -187,4 +187,8 @@ th, td {
 .demo > .row > div:last-child {
     padding-left: 15px;
     color: #000;
+}
+
+[data-id=berry-clear]{
+    margin-left: 20px;
 }
