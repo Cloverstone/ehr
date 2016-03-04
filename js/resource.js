@@ -66,12 +66,14 @@ pages = {
 	},
 	form: function(){
 		var fields = {};
+		var atts = {};
 		if(typeof forms[hashParams.form] !== 'undefined'){
 			fields = forms[hashParams.form];
+			atts = $.jStorage.get(hashParams.form);
 		}else{
 			fields = getItems(data);
+			atts = data;
 		}
-		var atts = $.jStorage.get(hashParams.form) || data;
 
 		Berry.btn.clear = {
 			label: 'Clear',

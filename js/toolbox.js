@@ -125,7 +125,7 @@ var QueryStringToHash = function QueryStringToHash  (query) {
 			var values = {}
 			for(var label in this.labels){
 				// debugger;
-				var selected = this.self.find('[name='+this.labels[label].name+'][type="radio"]:checked').data('label');
+				var selected = this.self.find('[name="'+this.labels[label].name+'"][type="radio"]:checked').data('label');
 				for(var i in this.item.options) {
 					if(this.item.options[i].label == selected) {
 						values[this.labels[label].name] = this.item.options[i].value;
@@ -138,7 +138,7 @@ var QueryStringToHash = function QueryStringToHash  (query) {
 		setValue: function(value) {
 			this.value = value;
 			for(var i in this.labels){
-				this.self.find('[name='+this.labels[i].name+'][value="' + this.value[this.labels[i].name] + '"]').prop('checked', true);
+				this.self.find('[name="'+this.labels[i].name+'"][value="' + this.value[this.labels[i].name] + '"]').prop('checked', true);
 			}
 		},
 		// set: function(value){
