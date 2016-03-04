@@ -346,10 +346,81 @@ forms.respiratory = {
 			options: ['None', 'Shortness of Breath', 'Difficulty Breathing at Rest', 'Difficulty Breathing with Activity', 'Cyanosis', 'Kussmaul']
 		},
 		'Other': {}
+	}}
+}
+
+forms.gi = {
+	'Abdominal Description': {
+		help: 'All',
+		type: 'radio',
+		options: ['Soft', 'Flat', 'Non Distended', 'Non Tender', 'Firm', 'Distended', 'Rounded', 'Rigid', 'Sunken', 'Tender', 'Guarded', 'Other:']
+	},
+	'Abdominal Description (LUQ)': {
+		help: 'LUQ',
+		type: 'radio',
+		options: ['Non Tender', 'Tender', 'Guarding', 'Rebound pain', 'Other:']
+	},
+	'Abdominal Description (LUQ)': {
+		help: 'RUQ',
+		type: 'radio',
+		options: ['Non Tender', 'Tender', 'Guarding', 'Rebound pain', 'Other:']
+	},
+	'Abdominal Description (LLQ)': {
+		help: 'LLQ',
+		type: 'radio',
+		options: ['Non Tender', 'Tender', 'Guarding', 'Rebound pain', 'Other:']
+	},
+	'Abdominal Description (RLQ)': {
+		help: 'RLQ',
+		type: 'radio',
+		options: ['Non Tender', 'Tender', 'Guarding', 'Rebound pain', 'Other:']
+	},
+	'Gi Symptoms': {type: 'radio',
+		options: [' None', 'Anorexia', 'Belching', 'Vomiting', 'Heartburn', 'Nausea', 'Epl. Pain', 'Cramping', 'Constipation', 'Diarrhea', 'Abd. Pain', 'Flatulence', 'Hiccup', 'Incontinence', 'Insatiately']
+	},
+	'Bowel Sounds': {
+		labels: [{'name':'All'}, {'name':'LUQ'}, {'name':'RUQ'}, {'name':'LLQ'}, {'name':'RLQ'}],
+		options: ['Present', 'Hyperactive', 'Hypoactive', 'Absent']
+	},
+	'Diet Tolerance': {
+		options: ['Good', 'Fair', 'Poor', 'N/A']
+	},
+	'Output': {fields:{
+		'Stool': {type: 'radio',
+			options: ['Soft', 'Hard', 'Liquid', 'Formed', 'Frothy', 'Clots', 'Loose', 'Mucous', 'Large', 'Small', 'Pasty', 'Seedy', 'Tarry', 'Watery', 'Brown', 'Black', 'Blood, Frank', 'Blood, Tinged', 'Clay', 'Green', 'Maroon', 'Yellow', 'Tan']
+		},
+		'Emesis': {type: 'radio',
+			options: ['Clear', 'Frothy', 'Blood, Tinged', 'Billious', 'Green', 'Bloody', 'Coffee Ground', 'Food Content', 'Projectile']
+		}
 	}},
-
-	
-
-
-
+	'Gastric Tubes': {fields: {
+		'Location': {type: 'radio',
+			options: ['Nasogastric, Left Nare', 'Nasogastric, Right Nare', 'Orogastric', 'Gastric']
+		},
+		'Size': {help: 'Fr'},
+		'Depth': {help: 'cm'},
+		'Measure At': {type: 'radio',
+			options: ['Nare', 'Lip', 'Teeth', 'Skin Insertion']
+		}
+	}},
+	'Ostomy': {fields: {
+		'Location': {type: 'radio',
+			options: ['LUQ', 'RUQ', 'LLQ', 'RLQ']
+		},
+		'Appliance Changed': {},
+		'Type': {
+			options: ['Colostomy', 'Ileostomy']
+		},
+		'Site Description': 'textarea'
+	}},
+	'Diet': {fields:{
+		'Diet': { label:'&nbsp;', type: 'radio',
+			options: ['Regular', 'Clear Liquids', 'NPO', 'Low Fat', 'Low Sodium', '1800 cal ADA', 'Tube Feeds', 'Soft Mechanical', 'TPN', 'Pureed', 'Cardiac']
+		},
+		'Amount of Meal Consumed': { type: 'scale', min: 1, max: 5, high: '100%', low: '0%'}
+	}},
+	'Abdominal Girth': {fields:{
+		'Size': {help: 'cm'},
+		'Measured At': {}
+	}}
 }
