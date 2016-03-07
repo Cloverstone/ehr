@@ -100,10 +100,10 @@ pages = {
 
 
 
+var forms = {};
 
 
-var forms = {
-	neuro: {
+	forms.neuro = {
 		'Orientation': {type: 'radio', 
 			options: ['Person, Time, Place, Situation', ' Disoriented', ' Person', ' Time', ' Place', ' Situation']
 		},
@@ -145,10 +145,9 @@ var forms = {
 				options: ['Anxious or Restless or Both', 'Cooperative, Orientated, and Tranquil', 'Responding to Commands', 'Brisk Response to Stimulus', 'Sluggish Response to Stimulus', 'No Response to Stimulus', 'Submit']
 			}
 		}}
-	}, genitourinary: {
-		'Shift': {label:false, type: 'custom_radio', options: ['Day Shift', 'Evening Shift', 'Night Shift']},
+	}
 
-	}, intake_output: {
+	forms.intake_output = {
 		'Shift': {label:false, type: 'custom_radio', options: ['Day Shift', 'Evening Shift', 'Night Shift']},
 		'Sample Question 2': {},
 		'Intake': {fields: {
@@ -165,7 +164,9 @@ var forms = {
 			'Drainage Tubes': {help: 'in mLs'},
 			'Other': {},
 		}}
-	}, vital_signs: {
+	}
+
+	forms.vital_signs = {
 		'Blood Pressure': {fields: {
 			'Systolic': {},
 			'Diastolic': {},
@@ -188,7 +189,9 @@ var forms = {
 			'Notes': {type: 'textarea'}
 			}
 		}
-	}, patient_information:	{
+	}
+
+	forms.patient_information =	{
 		'First Name': {},
 		'Middle Name': {},
 		'Last Name': {},
@@ -226,7 +229,6 @@ var forms = {
 		},
 		'Emergency Contact': {}
 	}
-}
 
 forms.pain = {
 	'Site': {},
@@ -422,5 +424,105 @@ forms.gi = {
 	'Abdominal Girth': {fields:{
 		'Size': {help: 'cm'},
 		'Measured At': {}
+	}}
+}
+
+forms.gu = {
+	'Urinary Symptoms' : { help: 'Check all that apply',
+		options: ['None', 'Dysuria', 'Frequency', 'Urgency', 'Oliguria', 'Polyuria', 'Anuria', 'Incontinence, Stress', 'Incontinence, Complete', 'Hematuria', 'Nocturia', 'Urinary Retention', 'Diffculty Starting Stream', 'Hesitancy']
+	},
+	'Urine Color': {
+		options: ['Yellow', 'Amber', 'Orange', 'Brown', 'Pink', 'Green', 'Blue', 'Not Visualized']
+	},
+	'Urine Character': {
+		options: ['Clear', 'Cloudy', 'Concentrated', 'Dilute', 'Sediment', 'Bloody', 'Clots', 'Frothy', 'Purulent']
+	},
+	'Urinary Elimination': {
+		options: ['Voiding w/o Difficulty', 'Voiding with Difficulty', 'Indwelling Catheter', 'Inability to Void', 'Straight Catheter', 'Self Catheter', 'Condom Catheter', 'Surapubic Catheter', '3-way Indwelling Catheter', 'Urostomy', 'Nephrostomy Tube', 'Dialysis']
+	},
+	'Amount': {},
+	'Catheter': {fields: {
+		'Catheter Size': {help: 'Fr'},
+		'Volume in Balloon': { help: 'mL'},
+		'Site Description': 'textarea'
+	}},
+	'Genitalia Exam':{fields: { exam: {label: false, type: 'textarea'}}},
+	'SANE (Sexual Assault Nurse Examiners) Exam':{fields: { exam: {label: false, type: 'textarea'}}}
+}
+
+forms.musculoskeletal = {
+	'Musculoskeletal Symptoms': { help: 'Check all that apply',
+		options: ['None', 'Pain', 'Joint Swelling', 'Joint Stiffness', 'Contractures', 'Deformities', 'Crepitus', 'Weakness', 'Amputation', 'Other']
+	},
+	'Muscle Tone/Strength': {fields: {
+		'Motor Strength Grade': { type: 'radio_collection',
+			labels: [{'name':'All'}, {'name':'LUE'}, {'name':'RUE'}, {'name':'LLE'}, {'name':'RLE'}],
+			options: ['Normal', 'Average Weakness', 'Poor ROM', 'Severe Weakness', 'Paralysis']
+		},
+		'Range of Motion': { type: 'radio_collection',
+			labels: [{'name':'All'}, {'name':'LUE'}, {'name':'RUE'}, {'name':'LLE'}, {'name':'RLE'}],
+			options: ['Full ROM', 'Impaired ROM']
+		},
+		'Characteristic': { type: 'radio_collection',
+			labels: [{'name':'All'}, {'name':'LUE'}, {'name':'RUE'}, {'name':'LLE'}, {'name':'RLE'}],
+			options: ['Spasm', 'Contracture', 'Atrophy', 'Paralysis']
+		}
+	}},
+	'Weight Bearing/Gate': {fields: {
+		'gate': {
+			type: 'radio',
+			help: 'Check all that apply',
+			options: ['None', 'Steady', 'Independent', 'Unsteady', 'Dependent', 'Asymmetrical', 'Jerky', 'Shuffling', 'Spastic', 'N/A', 'Other:']
+		},
+		'Ambulatory Device': {
+			options: ['None', 'Cane', 'Crutches', 'Walker', 'Wheelchair', 'Bedfast', 'Artificial Limb', 'M/A']
+		}
+	}}
+}
+
+forms.skin = {
+	'skin': { type: 'radio', label: '&nbsp;',
+		options: ['Warm', 'Dry', 'Intact', 'Skin color appropriate for ethnicity', 'Yellow', 'Dusky', 'Pale', 'Ruddy', 'Cool', 'Diaphoretic', 'Lesion(s) noted', 'Wound(s) noted', 'Pressure ulcers noted']
+	},
+	'Lesions': { 
+		type: 'textarea',
+		help: 'If lesions were noted, document characteristics including color, consistency, measurements and location.'
+	},
+	'Wounds': {
+		type: 'textarea',
+		help: 'If wounds were noted, document REEDA, COCA, and location.'
+	},
+	'Pressure Ulcers': {
+		type: 'textarea',
+		help: 'If pressure ulcers were noted, document stage, measurements, and location.'
+	},
+	'Other': {
+		type: 'textarea'
+	}
+}
+
+forms.mental = {
+	'General': {fields:{
+		'Behavior/Affect': { type: 'radio',
+			options: [' Calm', 'Cooperative', 'Appropriate', 'Restless', 'Combative', 'Confused', 'Agitated', 'Anxious', 'Depressed', 'Crying', 'Fearful', 'Hostile', 'Inappropriate']
+		},		
+		'Coping': { type: 'radio',
+			options: ['Well', 'Fair', 'Poor', 'Ineffective']
+		},		
+		'Consult': { type: 'radio',
+			options: ['Chaplain', 'Social Work', 'Psychiatry']
+		},	
+		'At Risk for': { type: 'radio',
+			options: ['Homocidal', 'Suicidal']
+		},
+	}},
+	'Abuse': {fields:{
+		"Check the appropriate box(es) that indicate the patient's risk for abuse.": {
+			options: ['Physical', 'Sexual', 'Psychological', 'Property']
+		},
+		'Detail assessments that suggest abuse': 'textarea'
+	}},
+	'Narrative Note': {fields:{
+		'note': {type: 'textarea', label: false}
 	}}
 }
