@@ -104,10 +104,10 @@ var forms = {};
 
 
 	forms.neuro = {
-		'Orientation': {type: 'radio', 
+		'Orientation': {type: 'check_collection', 
 			options: ['Person, Time, Place, Situation', ' Disoriented', ' Person', ' Time', ' Place', ' Situation']
 		},
-		'Behavioral / Emotional': { type: 'radio',
+		'Behavioral / Emotional': { type: 'check_collection',
 			options: ['Calm', 'Cooperative', 'Restless', 'Combative', 'Confused', 'Agitated', 'Untestable']
 		},
 		'Strength': { type: 'radio_collection',
@@ -115,7 +115,7 @@ var forms = {};
 			options:['Moves well on request', 'Weak movement on request', 'Moves well with stimulation', 'Weak movement with stimulation', 'No movement']
 		},
 		'Pupils': {fields:{
-			'PERRLA': {help: 'Pupils are:', 
+			'PERRLA': {help: 'Pupils are:', type: 'check_collection',
 				options: ['Equal', 'Round', 'Reactive to light', 'Reactive to accomodation']
 			},
 			'Both Eyes': {help: 'Size', min: 1, max: 7, type: 'scale'},
@@ -233,13 +233,13 @@ var forms = {};
 forms.pain = {
 	'Site': {},
 	'Quantity': {min: 0, max: 10, type: 'scale', low: 'No Pain', high: 'Worst Pain Imaginable'},
-	'Aggravating Factors': { type: 'radio',
+	'Aggravating Factors': { type: 'check_collection',
 		options: ['Movement','Coughing','Breathing','Eating']
 	},
-	'Alleviating Factors': { type: 'radio',
+	'Alleviating Factors': { type: 'check_collection',
 		options: ['Rest', 'Compression', 'Medication', 'Ice', 'Immobility'],
 	},
-	'Quality Of Pain': { type: 'radio',
+	'Quality Of Pain': { type: 'check_collection',
 		options: ['Aching', 'Throbbing', 'Dull', 'Stabbing', 'Burning', 'Piercing', 'Sore', 'Crushing'],
 	},
 	'Periodicity': { type: 'radio',
@@ -276,7 +276,7 @@ forms.iv = {
 }
 
 forms.cardiac = {
-	'Heart Tones': { type: 'radio',
+	'Heart Tones': { type: 'check_collection',
 		options: ['S1, S2', 'Regular', 'Murmur', 'Gallop', 'S3', 'S4', 'Muffled', 'Irregular', 'Distant'],
 	},
 	'Pulses': { type: 'radio_collection',
@@ -291,21 +291,21 @@ forms.cardiac = {
 		labels: [{'name':'All'}, {'name':'LUE'}, {'name':'RUE'}, {'name':'LLE'}, {'name':'RLE'}],
 		options: ['Absent', '< 3 seconds', '> 3 seconds']
 	},
-	'Skin Color and Description': { type: 'radio',
+	'Skin Color and Description': { type: 'check_collection',
 		options: ['Appropriate for ethnicity', 'Warm', 'Dry', 'Intact', 'Cool', 'Clammy', 'Cyanotic', 'Diaphoretic', 'Blotchy', 'Dusky', 'Flushed', 'Fragile', 'Jaundiced', 'Moist', 'Mottled', 'Pale', 'Ashen'],
 	},
 	'Detail': 'textarea',
-	'Devices': { type: 'radio',
+	'Devices': { type: 'check_collection',
 		options: ['Pacer', 'IABP', 'CVP', 'Pulmonary Artery Monitoring', 'Cardiac Monitor', 'Arterial line', 'Other:'],
 	},
 }
 forms.respiratory = {
 	'Oxygen Delivery': {fields:{
-		'Method': { type: 'radio',
+		'Method': { type: 'check_collection',
 			options: ['Room Air', 'Nasal Cannula', 'Non-rebreather', 'Venti mask', 'Ventilator', 'Other']
 		},		
 		'Amount (in Liters)': {},
-		'Airway Device': { type: 'radio',
+		'Airway Device': { type: 'check_collection',
 			options: ['Endotracheal Tube', 'Tracheostomy']
 		}
 	}},
@@ -318,7 +318,7 @@ forms.respiratory = {
 			labels: [{'name':'All	'}, {'name':'Upper Lobe	'}, {'name':'Mid Lobe	'}, {'name':'Lower Lobe	'}, {'name':'Axillary	'}, {'name':'All	'}, {'name':'Upper Lobe	'}, {'name':'Mid Lobe	'}, {'name':'Lower Lobe'}],
 			options: ['Clear', 'Crackles', 'Rhonchi', 'Wheeze', 'Absent']
 		},
-		'Wheeze Quality': { type: 'radio',
+		'Wheeze Quality': { type: 'check_collection',
 			options: ['Inspiratory', 'Expiratory', 'Low pitched', 'High pitched']
 		},
 		'Stridor': { type: 'radio',
@@ -327,7 +327,7 @@ forms.respiratory = {
 	}},
 	'Cough': {options: ['None', 'Dry', 'Productive']},
 	'Sputum': {fields:{
-		'Color': { type: 'radio',
+		'Color': { type: 'check_collection',
 			options: ['None', 'Clear', 'White', 'Creamy', 'Yellow', 'Green', 'Bloody', 'Blood tinged', 'Tan', 'Black']
 		},
 		'Consistency': { type: 'radio',
@@ -338,13 +338,13 @@ forms.respiratory = {
 		}
 	}},
 	'Respirations': {fields:{
-		'Respirations': {label:'Respirations', type: 'radio',
+		'Respirations': {label:'Respirations', type: 'check_collection',
 			options: ['Unlabored', 'Labored', 'Shallow', 'Gasping', 'Grunting', 'Nasal Flaring', 'Cheyne-Stokes', 'Kussmaul', 'Apneic', 'Tachypnea']
 		},
-		'Retractions': { type: 'radio',
+		'Retractions': { type: 'check_collection',
 			options: ['Supracostal', 'Intercostal', 'Subcostal', 'Substernal']
 		},
-		'Other Respiratory Symptoms': { type: 'radio',
+		'Other Respiratory Symptoms': { type: 'check_collection',
 			options: ['None', 'Shortness of Breath', 'Difficulty Breathing at Rest', 'Difficulty Breathing with Activity', 'Cyanosis', 'Kussmaul']
 		},
 		'Other': {}
@@ -354,30 +354,30 @@ forms.respiratory = {
 forms.gi = {
 	'Abdominal Description': {
 		help: 'All',
-		type: 'radio',
+		type: 'check_collection',
 		options: ['Soft', 'Flat', 'Non Distended', 'Non Tender', 'Firm', 'Distended', 'Rounded', 'Rigid', 'Sunken', 'Tender', 'Guarded', 'Other:']
 	},
 	'Abdominal Description (LUQ)': {
 		help: 'LUQ',
-		type: 'radio',
+		type: 'check_collection',
 		options: ['Non Tender', 'Tender', 'Guarding', 'Rebound pain', 'Other:']
 	},
 	'Abdominal Description (LUQ)': {
-		help: 'RUQ',
-		type: 'radio',
+		help: 'LUQ',
+		type: 'check_collection',
 		options: ['Non Tender', 'Tender', 'Guarding', 'Rebound pain', 'Other:']
 	},
 	'Abdominal Description (LLQ)': {
 		help: 'LLQ',
-		type: 'radio',
+		type: 'check_collection',
 		options: ['Non Tender', 'Tender', 'Guarding', 'Rebound pain', 'Other:']
 	},
 	'Abdominal Description (RLQ)': {
 		help: 'RLQ',
-		type: 'radio',
+		type: 'check_collection',
 		options: ['Non Tender', 'Tender', 'Guarding', 'Rebound pain', 'Other:']
 	},
-	'Gi Symptoms': {type: 'radio',
+	'Gi Symptoms': {type: 'check_collection',
 		options: [' None', 'Anorexia', 'Belching', 'Vomiting', 'Heartburn', 'Nausea', 'Epl. Pain', 'Cramping', 'Constipation', 'Diarrhea', 'Abd. Pain', 'Flatulence', 'Hiccup', 'Incontinence', 'Insatiately']
 	},
 	'Bowel Sounds': {
@@ -388,10 +388,10 @@ forms.gi = {
 		options: ['Good', 'Fair', 'Poor', 'N/A']
 	},
 	'Output': {fields:{
-		'Stool': {type: 'radio',
+		'Stool': {type: 'check_collection',
 			options: ['Soft', 'Hard', 'Liquid', 'Formed', 'Frothy', 'Clots', 'Loose', 'Mucous', 'Large', 'Small', 'Pasty', 'Seedy', 'Tarry', 'Watery', 'Brown', 'Black', 'Blood, Frank', 'Blood, Tinged', 'Clay', 'Green', 'Maroon', 'Yellow', 'Tan']
 		},
-		'Emesis': {type: 'radio',
+		'Emesis': {type: 'check_collection',
 			options: ['Clear', 'Frothy', 'Blood, Tinged', 'Billious', 'Green', 'Bloody', 'Coffee Ground', 'Food Content', 'Projectile']
 		}
 	}},
@@ -416,7 +416,7 @@ forms.gi = {
 		'Site Description': 'textarea'
 	}},
 	'Diet': {fields:{
-		'Diet': { label:'&nbsp;', type: 'radio',
+		'Diet': { label:'&nbsp;', type: 'check_collection',
 			options: ['Regular', 'Clear Liquids', 'NPO', 'Low Fat', 'Low Sodium', '1800 cal ADA', 'Tube Feeds', 'Soft Mechanical', 'TPN', 'Pureed', 'Cardiac']
 		},
 		'Amount of Meal Consumed': { type: 'scale', min: 1, max: 5, high: '100%', low: '0%'}
@@ -428,7 +428,7 @@ forms.gi = {
 }
 
 forms.gu = {
-	'Urinary Symptoms' : { help: 'Check all that apply',
+	'Urinary Symptoms' : { help: 'Check all that apply', type: 'check_collection',
 		options: ['None', 'Dysuria', 'Frequency', 'Urgency', 'Oliguria', 'Polyuria', 'Anuria', 'Incontinence, Stress', 'Incontinence, Complete', 'Hematuria', 'Nocturia', 'Urinary Retention', 'Diffculty Starting Stream', 'Hesitancy']
 	},
 	'Urine Color': {
@@ -451,7 +451,7 @@ forms.gu = {
 }
 
 forms.musculoskeletal = {
-	'Musculoskeletal Symptoms': { help: 'Check all that apply',
+	'Musculoskeletal Symptoms': { help: 'Check all that apply', type: 'check_collection',
 		options: ['None', 'Pain', 'Joint Swelling', 'Joint Stiffness', 'Contractures', 'Deformities', 'Crepitus', 'Weakness', 'Amputation', 'Other']
 	},
 	'Muscle Tone/Strength': {fields: {
@@ -470,7 +470,7 @@ forms.musculoskeletal = {
 	}},
 	'Weight Bearing/Gate': {fields: {
 		'gate': {
-			type: 'radio',
+			type: 'check_collection',
 			help: 'Check all that apply',
 			options: ['None', 'Steady', 'Independent', 'Unsteady', 'Dependent', 'Asymmetrical', 'Jerky', 'Shuffling', 'Spastic', 'N/A', 'Other:']
 		},
@@ -481,7 +481,7 @@ forms.musculoskeletal = {
 }
 
 forms.skin = {
-	'skin': { type: 'radio', label: '&nbsp;',
+	'skin': { type: 'check_collection', label: '&nbsp;',
 		options: ['Warm', 'Dry', 'Intact', 'Skin color appropriate for ethnicity', 'Yellow', 'Dusky', 'Pale', 'Ruddy', 'Cool', 'Diaphoretic', 'Lesion(s) noted', 'Wound(s) noted', 'Pressure ulcers noted']
 	},
 	'Lesions': { 
@@ -509,10 +509,10 @@ forms.mental = {
 		'Coping': { type: 'radio',
 			options: ['Well', 'Fair', 'Poor', 'Ineffective']
 		},		
-		'Consult': { type: 'radio',
+		'Consult': { type: 'check_collection',
 			options: ['Chaplain', 'Social Work', 'Psychiatry']
 		},	
-		'At Risk for': { type: 'radio',
+		'At Risk for': { type: 'check_collection',
 			options: ['Homocidal', 'Suicidal']
 		},
 	}},
