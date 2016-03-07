@@ -503,8 +503,8 @@ forms.skin = {
 
 forms.mental = {
 	'General': {fields:{
-		'Behavior/Affect': { type: 'radio',
-			options: [' Calm', 'Cooperative', 'Appropriate', 'Restless', 'Combative', 'Confused', 'Agitated', 'Anxious', 'Depressed', 'Crying', 'Fearful', 'Hostile', 'Inappropriate']
+		'Behavior/Affect': { type: 'check_collection',
+			options: ['Calm', 'Cooperative', 'Appropriate', 'Restless', 'Combative', 'Confused', 'Agitated', 'Anxious', 'Depressed', 'Crying', 'Fearful', 'Hostile', 'Inappropriate']
 		},		
 		'Coping': { type: 'radio',
 			options: ['Well', 'Fair', 'Poor', 'Ineffective']
@@ -517,7 +517,8 @@ forms.mental = {
 		},
 	}},
 	'Abuse': {fields:{
-		"Check the appropriate box(es) that indicate the patient's risk for abuse.": {
+		"Check the appropriate box(es) that indicate the patient's risk for abuse.": { 
+			type: 'check_collection',
 			options: ['Physical', 'Sexual', 'Psychological', 'Property']
 		},
 		'Detail assessments that suggest abuse': 'textarea'
@@ -525,4 +526,13 @@ forms.mental = {
 	'Narrative Note': {fields:{
 		'note': {type: 'textarea', label: false}
 	}}
+}
+
+
+forms.notes = {
+	// 'Date': {type: 'date', help: 'Example: 03/05/2013'},
+	// 'Time': {type: 'datetime-local', help: 'Example: 11:30 AM'},
+	'Date and Time': {type: 'datetime-local', help: 'Example: 03/05/2013 11:30 AM'},
+	'Notes': 'textarea',
+	'Signature': {}
 }

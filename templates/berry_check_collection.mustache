@@ -14,35 +14,17 @@
 		{{#pre}}<div class="input-group"><span class="input-group-addon">{{{pre}}}</span>{{/pre}}
 		{{^pre}}{{#post}}<div class="input-group">{{/post}}{{/pre}}
 
-			<table class="table table-striped">
-				<thead>
-				<tr>
-					<th></th>
 					{{#options}}
-					<th>{{label}}</th>
-					{{/options}}
-					<th></th>
-				</tr>
 
-				</thead>
-				<tbody>
-				<tr>
-					<td>
-						{{{low}}}
-					</td>
+<div class="checkbox">
 
-					{{#options}}
-					<td>
-						<input data-label="{{label}}" name="{{name}}" value="{{value}}" {{^isEnabled}}readonly{{/isEnabled}} type="radio" {{#selected}}checked=checked{{/selected}} >
-					</td>
-					{{/options}}
-					<td>
-						{{{high}}}
-					</td>
-				</tr>
 
-		</tbody>
-			</table>
+						<label class="{{alt-display}}">
+							<input name="{{value}}" type="checkbox" {{^isEnabled}}readonly{{/isEnabled}} {{#selected}}checked=checked{{/selected}}>{{#container}}<{{container}} style="position:relative;display:inline-block">{{label}}</{{container}}>{{/container}}
+						</label>
+</div>
+
+										{{/options}}
 
 		{{#post}}<span class="input-group-addon">{{{post}}}</span></div>{{/post}}
 		{{^post}}{{#pre}}</div>{{/pre}}{{/post}}

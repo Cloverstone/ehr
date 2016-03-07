@@ -200,5 +200,139 @@ var QueryStringToHash = function QueryStringToHash  (query) {
 		}
 	});
 })(Berry, jQuery);
+// Berry.register({type: 'datetime-local'})
 
 
+// (function(b, $){
+// 	b.register({ type: 'check_collection',
+
+// 		defaults: {container: 'span'},
+// 		create: function() {
+// 			this.options = b.processOpts.call(this.owner, this.item, this).options;
+// 			return b.render('berry_' + (this.elType || this.type), this);
+// 		},
+// 		setup: function() {
+// 			this.$el = this.self.find('[type=checkbox]');
+// 			this.$el.off();
+// 			if(this.onchange !== undefined) {
+// 				this.on('change', this.onchange);
+// 			}
+// 			this.$el.change($.proxy(function(){this.trigger('change');}, this));
+// 		},
+// 		getValue: function() {
+// 			var values = {}
+// 			for(var label in this.labels){
+// 				// debugger;
+// 				var selected = this.self.find('[name="'+this.labels[label].name+'"][type="checkbox"]:checked').data('label');
+// 				for(var i in this.item.options) {
+// 					if(this.item.options[i].label == selected) {
+// 						values[this.labels[label].name] = this.item.options[i].value;
+// 						// return this.item.options[i].value;
+// 					}
+// 				}
+// 			}
+// 			return values;
+// 		},
+// 		setValue: function(value) {
+// 			this.value = value;
+// 			for(var i in this.labels){
+// 				this.self.find('[name="'+this.labels[i].name+'"][value="' + this.value[this.labels[i].name] + '"]').prop('checked', true);
+// 			}
+// 		},
+// 		// set: function(value){
+// 		// 	if(this.value != value) {
+// 		// 		//this.value = value;
+// 		// 		this.setValue(value);
+// 		// 		this.trigger('change');
+// 		// 	}
+// 		// },
+// 		displayAs: function() {
+// 			for(var i in this.item.options) {
+// 				if(this.item.options[i].value == this.lastSaved) {
+// 					return this.item.options[i].label;
+// 				}
+// 			}
+// 		},
+// 		focus: function(){
+// 			this.self.find('[name='+this.labels[0].name+'][type="checkbox"]:checked').focus();
+// 		}
+// 	});
+// })(Berry, jQuery);
+
+
+
+
+(function(b, $){
+	b.register({ type: 'check_collection',
+		defaults: {container: 'span'},
+		create: function() {
+			this.options = b.processOpts.call(this.owner, this.item, this).options;
+
+			this.checkStatus(this.value);
+			return b.render('berry_check_collection', this);
+		},
+		checkStatus: function(value){
+			if(value === true || value === "true" || value === 1 || value === "1" || value === "on" || value == this.truestate){
+				this.value = true;
+			}else{
+				this.value = false;
+			}
+		},
+		setup: function() {
+			this.$el = this.self.find('[type=checkbox]');
+			this.$el.off();
+			if(this.onchange !== undefined) {
+				this.on('change', this.onchange);
+			}
+			this.$el.change($.proxy(function(){this.trigger('change');},this));
+		},
+		getValue: function() {
+// debugger;
+
+			// var values = {}
+			var values = [];
+			for(var opt in this.options){
+				if(this.self.find('[name="'+this.options[opt].value+'"][type="checkbox"]').is(':checked')){
+					// values[this.options[opt].value] = (this.truestate || true);
+					values.push(this.options[opt].value);
+				}else{
+					if(typeof this.falsestate !== 'undefined') {
+						// values[this.options[opt].value] = this.falsestate;
+					}else{
+						// values[this.options[opt].value] = false;
+					}
+				}
+				
+			}
+			return values;
+
+
+
+		},
+		setValue: function(value) {
+			// this.checkStatus(value);
+			// this.$el.prop('checked', this.value);
+			// this.value = value;
+			// debugger;
+			this.value = value;
+				this.self.find('[type="checkbox"]').prop('checked', false);
+			for(var i in this.value){
+				this.self.find('[name="'+this.value[i]+'"][type="checkbox"]').prop('checked', true);
+			}
+		},
+		displayAs: function() {
+			for(var i in this.item.options) {
+				if(this.item.options[i].value == this.lastSaved) {
+					return this.item.options[i].name;
+				}
+			}
+		},
+		focus: function(){
+			//this.$el.focus();
+			this.self.find('[type=checkbox]:first').focus();
+		},
+		satisfied: function(){
+			return this.$el.is(':checked');
+		},
+	});
+})(Berry, jQuery);
