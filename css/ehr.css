@@ -192,3 +192,29 @@ th, td {
 [data-id=berry-clear]{
     margin-left: 20px;
 }
+
+#lab{
+    border:solid #333 ;
+    border-width:0 1px 1px 0;
+    display: inline-block;
+}
+#lab > div {
+    display: inline-block;
+    min-width:100px;
+    float:left;
+}
+#lab .title {
+    font-size:24px;
+    /*font-weight: bold;*/
+    height:60px;
+    text-align: center;
+}
+#lab .title div{height: 20px;}
+#lab .title span{
+    font-size: 12px
+}
+#lab > div > div{
+    padding:5px;
+    border:solid #333 ;
+    border-width:1px 0 0 1px;
+}

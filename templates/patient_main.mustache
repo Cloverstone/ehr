@@ -27,10 +27,9 @@
     <div class="col-sm-4">Laboratory and Tests</div>
   </div>
   <div class="list-group list-group-ehr">
-    <a class="list-group-item">CBC</a>
-    <a class="list-group-item">CMP</a>
-    <a class="list-group-item">Urinalysis</a>
-    <a class="list-group-item">CT Scan</a>
+    {{#data.labs}}
+    <a href="#page=patient_lab&lab={{name}}&patient={{hash.patient}}" class="list-group-item">{{name}}</a>
+    {{/data.labs}}
   </div>
 
   <!-- ############# Nurse Charting section ########### -->
