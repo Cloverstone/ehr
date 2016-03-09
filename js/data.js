@@ -813,5 +813,13 @@ this.data =
 			}
 			]
 		}
-	]
+	],
+	"ct_scan":{
+		"procedure_date": "Day of Admission",
+		"procedure": "Abdominal CT w/o Contrast",
+		"indication": "C/O abdominal pain, vomiting x 1 day, anorexia",
+		"report": "Free intraperitoneal fluid and displacement of adjacent bowel in lower right quadrant of abdomen. Calcified appendicolith noted.",
+		"impression": "Ruptured appendix with peritonitis",
+		"dictated_by": "Dr. Omar Saheed"
+	}
 };

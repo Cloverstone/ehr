@@ -29,7 +29,9 @@
   <div class="list-group list-group-ehr">
     {{#data.labs}}
     <a href="#page=patient_lab&lab={{name}}&patient={{hash.patient}}" class="list-group-item">{{name}}</a>
-    {{/data.labs}}
+    {{/data.labs}}    
+    <a href="#page=patient_ct_scan&patient={{hash.patient}}" class="list-group-item">CT Scan</a>
+
   </div>
 
   <!-- ############# Nurse Charting section ########### -->
