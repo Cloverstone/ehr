@@ -32,7 +32,7 @@ pages = {
 
 		$('[data-order-text]').on('click', function(e){
 			$().berry({legend: 'Confirmation', fields: [
-				{label: 'Patient', type: 'qrcode', name:'patient', required: true, help: e.currentTarget.dataset.name},
+				{label: 'Patient/Date of Birth', type: 'qrcode', name:'patient', required: true, help: e.currentTarget.dataset.name},
 				{label: 'Prescription', type: 'qrcode', name:'prescription', required: true,help: e.currentTarget.dataset.orderText},
 				{label: 'Confirm', value: getNodeIndex(e.currentTarget.parentNode), type: 'hidden', required: true}
 			]}).on('save', function() {
@@ -68,8 +68,9 @@ pages = {
 		var fields = {};
 		var atts = {};
 		if(typeof forms[hashParams.form] !== 'undefined'){
-			fields = forms[hashParams.form];
+			fields = forms[hashParams.form].fields;
 			atts = $.jStorage.get(hashParams.form);
+			$('.header .col-sm-3').html(forms[hashParams.form].label || 'FORM')
 		}else{
 			fields = getItems(data);
 			atts = data;
@@ -103,7 +104,7 @@ pages = {
 var forms = {};
 
 
-	forms.neuro = {
+	forms.neuro = {label: 'Neuro', fields:{
 		'Orientation': {type: 'check_collection', 
 			options: ['Person, Time, Place, Situation', ' Disoriented', ' Person', ' Time', ' Place', ' Situation']
 		},
@@ -145,9 +146,9 @@ var forms = {};
 				options: ['Anxious or Restless or Both', 'Cooperative, Orientated, and Tranquil', 'Responding to Commands', 'Brisk Response to Stimulus', 'Sluggish Response to Stimulus', 'No Response to Stimulus', 'Submit']
 			}
 		}}
-	}
+	}}
 
-	forms.intake_output = {
+	forms.intake_output = {label: 'Intake and Output', fields:{
 		'Shift': {label:false, type: 'custom_radio', options: ['Day Shift', 'Evening Shift', 'Night Shift']},
 		'Sample Question 2': {},
 		'Intake': {fields: {
@@ -164,9 +165,9 @@ var forms = {};
 			'Drainage Tubes': {help: 'in mLs'},
 			'Other': {},
 		}}
-	}
+	}}
 
-	forms.vital_signs = {
+	forms.vital_signs = {label: 'Vital Signs', fields:{
 		'Blood Pressure': {fields: {
 			'Systolic': {},
 			'Diastolic': {},
@@ -189,9 +190,9 @@ var forms = {};
 			'Notes': {type: 'textarea'}
 			}
 		}
-	}
+	}}
 
-	forms.patient_information =	{
+	forms.patient_information =	{label: 'Patient Information', fields:{
 		'First Name': {},
 		'Middle Name': {},
 		'Last Name': {},
@@ -228,9 +229,9 @@ var forms = {};
 			options: ['Yes', 'No']
 		},
 		'Emergency Contact': {}
-	}
+	}}
 
-forms.pain = {
+forms.pain = {label: 'Pain', fields:{
 	'Site': {},
 	'Quantity': {min: 0, max: 10, type: 'scale', low: 'No Pain', high: 'Worst Pain Imaginable'},
 	'Aggravating Factors': { type: 'check_collection',
@@ -254,9 +255,9 @@ forms.pain = {
 	},
 	'Notes': 'textarea',
 	'Reassessment': {help: 'in 1 hour', min: 0, max: 10, type: 'scale', low: 'No Pain', high: 'Worst Pain Imaginable'}
-}
+}}
 
-forms.iv = {
+forms.iv = {label: 'IV', fields:{
 	'IV Access?': { type: 'custom_radio',
 		options: ['Yes', 'No'],
 	},
@@ -273,9 +274,9 @@ forms.iv = {
 		},
 		'If new site, document catheter gauge and time initiated.':{}
 	}}
-}
+}}
 
-forms.cardiac = {
+forms.cardiac = {label: 'Cardiac', fields:{
 	'Heart Tones': { type: 'check_collection',
 		options: ['S1, S2', 'Regular', 'Murmur', 'Gallop', 'S3', 'S4', 'Muffled', 'Irregular', 'Distant'],
 	},
@@ -298,8 +299,8 @@ forms.cardiac = {
 	'Devices': { type: 'check_collection',
 		options: ['Pacer', 'IABP', 'CVP', 'Pulmonary Artery Monitoring', 'Cardiac Monitor', 'Arterial line', 'Other:'],
 	},
-}
-forms.respiratory = {
+}}
+forms.respiratory = {label: 'Respiratory', fields:{
 	'Oxygen Delivery': {fields:{
 		'Method': { type: 'check_collection',
 			options: ['Room Air', 'Nasal Cannula', 'Non-rebreather', 'Venti mask', 'Ventilator', 'Other']
@@ -349,9 +350,9 @@ forms.respiratory = {
 		},
 		'Other': {}
 	}}
-}
+}}
 
-forms.gi = {
+forms.gi = {label: 'Gastrointestinal', fields:{
 	'Abdominal Description': {
 		help: 'All',
 		type: 'check_collection',
@@ -416,7 +417,7 @@ forms.gi = {
 		'Site Description': 'textarea'
 	}},
 	'Diet': {fields:{
-		'Diet': { label:'&nbsp;', type: 'check_collection',
+		'Diet': { label:'Diet Ordered', type: 'check_collection',
 			options: ['Regular', 'Clear Liquids', 'NPO', 'Low Fat', 'Low Sodium', '1800 cal ADA', 'Tube Feeds', 'Soft Mechanical', 'TPN', 'Pureed', 'Cardiac']
 		},
 		'Amount of Meal Consumed': { type: 'scale', min: 1, max: 5, high: '100%', low: '0%'}
@@ -425,9 +426,9 @@ forms.gi = {
 		'Size': {help: 'cm'},
 		'Measured At': {}
 	}}
-}
+}}
 
-forms.gu = {
+forms.gu = {label: 'Genitourinary', fields:{
 	'Urinary Symptoms' : { help: 'Check all that apply', type: 'check_collection',
 		options: ['None', 'Dysuria', 'Frequency', 'Urgency', 'Oliguria', 'Polyuria', 'Anuria', 'Incontinence, Stress', 'Incontinence, Complete', 'Hematuria', 'Nocturia', 'Urinary Retention', 'Diffculty Starting Stream', 'Hesitancy']
 	},
@@ -448,9 +449,9 @@ forms.gu = {
 	}},
 	'Genitalia Exam':{fields: { exam: {label: false, type: 'textarea'}}},
 	'SANE (Sexual Assault Nurse Examiners) Exam':{fields: { exam: {label: false, type: 'textarea'}}}
-}
+}}
 
-forms.musculoskeletal = {
+forms.musculoskeletal = {label: 'Musculoskeletal', fields:{
 	'Musculoskeletal Symptoms': { help: 'Check all that apply', type: 'check_collection',
 		options: ['None', 'Pain', 'Joint Swelling', 'Joint Stiffness', 'Contractures', 'Deformities', 'Crepitus', 'Weakness', 'Amputation', 'Other']
 	},
@@ -469,7 +470,7 @@ forms.musculoskeletal = {
 		}
 	}},
 	'Weight Bearing/Gate': {fields: {
-		'gate': {
+		'Gate': {
 			type: 'check_collection',
 			help: 'Check all that apply',
 			options: ['None', 'Steady', 'Independent', 'Unsteady', 'Dependent', 'Asymmetrical', 'Jerky', 'Shuffling', 'Spastic', 'N/A', 'Other:']
@@ -478,10 +479,10 @@ forms.musculoskeletal = {
 			options: ['None', 'Cane', 'Crutches', 'Walker', 'Wheelchair', 'Bedfast', 'Artificial Limb', 'M/A']
 		}
 	}}
-}
+}}
 
-forms.skin = {
-	'skin': { type: 'check_collection', label: '&nbsp;',
+forms.skin = {label: 'Skin Assessment', fields:{
+	'skin': { type: 'check_collection', label: false,
 		options: ['Warm', 'Dry', 'Intact', 'Skin color appropriate for ethnicity', 'Yellow', 'Dusky', 'Pale', 'Ruddy', 'Cool', 'Diaphoretic', 'Lesion(s) noted', 'Wound(s) noted', 'Pressure ulcers noted']
 	},
 	'Lesions': { 
@@ -499,9 +500,9 @@ forms.skin = {
 	'Other': {
 		type: 'textarea'
 	}
-}
+}}
 
-forms.mental = {
+forms.mental = {label: 'Mental Status', fields:{
 	'General': {fields:{
 		'Behavior/Affect': { type: 'check_collection',
 			options: ['Calm', 'Cooperative', 'Appropriate', 'Restless', 'Combative', 'Confused', 'Agitated', 'Anxious', 'Depressed', 'Crying', 'Fearful', 'Hostile', 'Inappropriate']
@@ -526,13 +527,13 @@ forms.mental = {
 	'Narrative Note': {fields:{
 		'note': {type: 'textarea', label: false}
 	}}
-}
+}}
 
 
-forms.notes = {
+forms.notes = {label: '‘Nursing Notes', fields:{
 	// 'Date': {type: 'date', help: 'Example: 03/05/2013'},
 	// 'Time': {type: 'datetime-local', help: 'Example: 11:30 AM'},
 	'Date and Time': {type: 'datetime-local', help: 'Example: 03/05/2013 11:30 AM'},
 	'Notes': 'textarea',
 	'Signature': {}
-}
+}}

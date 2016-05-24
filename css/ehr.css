@@ -195,6 +195,7 @@ table.basic{
     font-size: 12px
 }
 #lab > div > div{
+    text-align: center;
     padding:5px;
     border:solid #333 ;
     border-width:1px 0 0 1px;

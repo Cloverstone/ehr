@@ -1,7 +1,7 @@
 <div>
   <div class="row header">
     <div class="col-sm-3">
-      Form
+      {{data.lab.label}}
     </div>
     <div class="col-sm-9">
       ELECTRONIC HEALTH RECORDS
@@ -12,7 +12,7 @@
   <style>flag{color:red;}</style>
   {{#data.lab}}
   <div id="lab" class="clearfix">
-  	<div style="text-align:right">
+  	<div>
   		<div class="title">Lab</div>
   		{{#fields}}
   		<div>{{{name}}}{{^name}}&nbsp;{{/name}}</div>
@@ -20,7 +20,7 @@
   	</div>
     {{#sets}}
     <div>
-      <div class="title"><div>VALUE</div><span>{{label}}<span></div>
+      <div class="title"><div>Value</div><span>{{label}}<span></div>
       {{#data}}
       <div>{{{.}}}{{^.}}&nbsp;{{/.}}</div>
       {{/data}}
@@ -52,5 +52,5 @@
     {{/fields.0.normals}}
   </div>
   {{/data.lab}}
-  <div>* For Flags- Use <flag>H</flag>=High, <flag>L</flag>=Low, or <flag>C</flag>=Critical</div>
+  <!-- <div>* For Flags- Use <flag>H</flag>=High, <flag>L</flag>=Low, or <flag>C</flag>=Critical</div> -->
 </div>

@@ -591,6 +591,7 @@ this.data =
 	"labs": [
 		{
 			"name": "CBC",
+			"label": "Complete Blood Count",
 			"fields": [{
 				"name": "WBC",
 				"units": "K/UL",
@@ -686,6 +687,7 @@ this.data =
 			]
 		},{
 			"name": "CMP",
+			"label": "Complete Metabolic Profile",
 			"fields": [{
 				"name":"NA",
 				"units":"MEQ/L",
@@ -719,7 +721,7 @@ this.data =
 				"units":"MG/DL",
 				"range": "8.5-10.5"
 			},{
-				"name":"TOT PROTIEN",
+				"name":"TOT PROTEIN",
 				"units":"GM/DL",
 				"range": "6.3-8.2"
 			},{
@@ -757,6 +759,7 @@ this.data =
 			]
 		},		{
 			"name": "Urinalysis",
+			"label": "Urinalysis",
 			"fields": [{
 				"name":"Color",
 				"normals": "Straw"
