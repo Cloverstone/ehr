@@ -1,7 +1,7 @@
 <div id="page-main">
   <div class="row header">
     <div class="col-sm-3">
-      {{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}}
+      {{data.patient_information.first_name}} {{data.patient_information.last_name}}
     </div>
     <div class="col-sm-9">
       ELECTRONIC HEALTH RECORDS
@@ -15,8 +15,7 @@
     <a href="#page=patient_progress_notes&patient={{hash.patient}}" class="list-group-item">Progress Notes</a>
     <a href="#page=patient_report_of_operation&patient={{hash.patient}}" class="list-group-item">Report of Operation</a>
     <a class="list-group-item">Consultations</a>
-    <a href="#page=patient_consent_to_care&patient={{hash.patient}}" class="list-group-item">Consents and Releases (consent to care)</a>
-    <a href="#page=patient_surgical_consent&patient={{hash.patient}}" class="list-group-item">Consents and Releases (surgical consent)</a>
+    <a href="#page=patient_consents&patient={{hash.patient}}" class="list-group-item">Consents</a>
     <a class="list-group-item">Discharge Summary</a>
     <a href="#page=patient_plan_of_care&patient={{hash.patient}}" class="list-group-item">Plan of Care</a>
     <a class="list-group-item">I&O and Vital Signs Summary</a>
@@ -27,9 +26,9 @@
     <div class="col-sm-4">Laboratory and Tests</div>
   </div>
   <div class="list-group list-group-ehr">
-    {{#data.labs}}
+    {{#data.labs.items}}
     <a href="#page=patient_lab&lab={{name}}&patient={{hash.patient}}" class="list-group-item">{{name}}</a>
-    {{/data.labs}}    
+    {{/data.labs.items}}    
     <a href="#page=patient_ct_scan&patient={{hash.patient}}" class="list-group-item">CT Scan</a>
 
   </div>

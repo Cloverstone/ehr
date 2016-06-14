@@ -29,7 +29,7 @@
           <td>{{order_text}}</td>
           <td>{{scheduled_time}}</td>
           {{^has_been_administered}}
-          <td class="success" style="cursor:pointer;color: #428bca;" data-name="{{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}}" data-order-text="{{order_text}}">Click to Administer</td>{{/has_been_administered}}
+          <td class="success" style="cursor:pointer;color: #428bca;" data-name="{{data.patient_information.first_name}} {{data.patient_information.last_name}} <br>DOB: {{data.patient_information.date_of_birth}}" data-order-text="{{order_text}}">Click to Administer</td>{{/has_been_administered}}
           {{#has_been_administered}}
           <td class="success">Administered</td>
           {{/has_been_administered}}

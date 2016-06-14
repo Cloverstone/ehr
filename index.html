@@ -45,12 +45,47 @@
 		<script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/jStorage/0.4.4/jstorage.min.js"></script>
 		<script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.0/lodash.min.js"></script>
 
-		<script type="text/javascript" src="js/full.berry.min.js"></script>
+		<!--script type="text/javascript" src="js/full.berry.min.js"></script-->
+
+
+		<script type='text/javascript' src='js/src/core.berry.js'></script>
+<script type='text/javascript' src='js/src/field.berry.js'></script>
+<script type='text/javascript' src='js/src/events.berry.js'></script>
+<script type='text/javascript' src='js/src/conditions.berry.js'></script>
+<script type='text/javascript' src='js/src/init.berry.js'></script>
+<script type='text/javascript' src='js/src/duplicate.berry.js'></script>
+<script type='text/javascript' src='js/src/validations.berry.js'></script>
+<script type='text/javascript' src='js/src/advanced/ace.berry.js'></script>
+<script type='text/javascript' src='js/src/advanced/contentEditable.berry.js'></script>
+<script type='text/javascript' src='js/src/advanced/custom_radio.berry.js'></script>
+<script type='text/javascript' src='js/src/advanced/custom_select.berry.js'></script>
+<script type='text/javascript' src='js/src/advanced/dropdown.berry.js'></script>
+<script type='text/javascript' src='js/src/advanced/grid_select.berry.js'></script>
+<script type='text/javascript' src='js/src/advanced/rateit.berry.js'></script>
+<script type='text/javascript' src='js/src/advanced/upload.berry.js'></script>
+<script type='text/javascript' src='js/src/enhance/backbone.berry.js'></script>
+<script type='text/javascript' src='js/src/enhance/modal.berry.js'></script>
+<script type='text/javascript' src='js/src/render/inline.berry.js'></script>
+<script type='text/javascript' src='js/src/render/popins.berry.js'></script>
+<script type='text/javascript' src='js/src/render/tabs.berry.js'></script>
+<script type='text/javascript' src='js/src/render/wizard.berry.js'></script>
+<script type='text/javascript' src='js/src/fields/checkbox.berry.js'></script>
+<script type='text/javascript' src='js/src/fields/radio.berry.js'></script>
+<script type='text/javascript' src='js/src/fields/select.berry.js'></script>
+<script type='text/javascript' src='js/src/fields/text.berry.js'></script>
+<script type='text/javascript' src='js/src/fields/textarea.berry.js'></script>
+<script type='text/javascript' src='js/src/vendor/js/colorpicker.min.js'></script>
+<script type='text/javascript' src='js/src/vendor/js/jquery.maskedInput.js'></script>
+<script type='text/javascript' src='js/src/vendor/js/jquery.tagsEditor.js'></script>
+<script type='text/javascript' src='js/src/vendor/js/jquery.tagsinput.js'></script>
+
+
 		<script type="text/javascript" src="js/bootstrap.full.berry.js"></script>
 		<script type="text/javascript" src="js/toolbox.js"></script>
 		<script type="text/javascript" src="js/data.js"></script>
 		<script type="text/javascript" src="js/templates.js"></script>
 		<script type="text/javascript" src="js/resource.js"></script>
+		<script type="text/javascript" src="js/forms.js"></script>
 		<script type="text/javascript" src="js/parser.js"></script>
 
 
@@ -71,18 +106,23 @@
 <script type="text/javascript" src="js/jsqrcode/findpat.js"></script>
 <script type="text/javascript" src="js/jsqrcode/alignpat.js"></script>
 <script type="text/javascript" src="js/jsqrcode/databr.js"></script>
+<script type="text/javascript" src="js/sugar.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 
 <script>	
 
-	session = JSON.parse(($.jStorage.get('session') || "{}"));
-	load = function (disableScroll) {
-		hashParams = QueryStringToHash(document.location.hash.substr(1) || "")
-		var page = hashParams['page']||'main';
-		if(hashParams['page'] == 'patient_lab'){data.lab = _.find(data.labs,{name:hashParams['lab']}) }
-		$('#container').html(render(page, {data: $.extend(true,{}, data, session), hash: hashParams, session: session}));
-		if(!disableScroll)$('html,body').scrollTop(0);
 
-		if(typeof pages[page] !== 'undefined'){
+
+	session = JSON.parse(($.jStorage.get('session') || '{}'));
+	load = function (disableScroll) {
+		hashParams = QueryStringToHash(document.location.hash.substr(1) || '')
+		var page = hashParams['page'] || 'main';
+		if(hashParams['page'] == 'patient_lab'){data.lab = _.find(data.labs.items,{name:hashParams['lab']}) }
+		$('#container').html(customRender(render(page, {data: $.extend(true, {}, data, session), hash: hashParams, session: session}), {data: $.extend(true, {}, data, session), hash: hashParams, session: session}));
+		if(!disableScroll)$('html, body').scrollTop(0);
+
+		if(typeof pages[page] !== 'undefined') {
 			pages[page]();
 		}
 	}

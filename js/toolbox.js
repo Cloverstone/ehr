@@ -32,6 +32,50 @@ function render(template, data){
 
 
 
+function customRender(content, scope){
+	scope = scope||{};
+	var myRegexp = /\[(.*?)\]/g;
+  var match = myRegexp.exec(content);
+  var response = JSON.parse( JSON.stringify( content ) );
+  var temp;
+
+  while (match != null) {
+  	try{
+  		var format = 'L';
+  		if(match[1].indexOf(':')>=0){
+  			var parts = match[1].split(':');
+  			format = parts[1];
+  			match[1] = parts[0];
+  		}
+  		match[1] = match[1].replace(/Admission/gi, '{{patient_information.admitted_on}}');
+  		// match[1] = match[1].replace(/DOB/gi, '{{patient_information.date_of_birth}}');
+  		match[1] = customRender(Hogan.compile(match[1]).render(scope.data, templates), scope);	
+  		var converted = {};
+  		if(match[1].indexOf('&')>=0){
+  			 var parts = match[1].split('&');
+  			 converted = moment(Date.past(parts[0].substr(0,parts[0].length-1))).subtract(parts[1].substr(4), 'years').format();
+
+  		}
+  		else{
+  			converted = Date.create(match[1]);
+  		}
+  			 if(typeof converted == "string" || converted instanceof Date){
+  			 	temp = moment(converted).format(format);
+  			 }else{
+  			 	temp = match[1];
+  			 }
+			// temp = moment(temp).format(format);
+
+		}catch(e){}
+
+    response = response.replace(match[0], temp || match[0]);
+    match = myRegexp.exec(content);
+  }
+	return response;
+}
+
+
+
 function getNodeIndex(node) {
   var index = 0;
   while (node = node.previousSibling) {
@@ -267,3 +311,20 @@ var QueryStringToHash = function QueryStringToHash  (query) {
 		},
 	});
 })(Berry, jQuery);
+
+
+
+// (function(b, $){
+// 	b.register({ type: 'sugar',
+// 		defaults: { elType: 'text' },
+// 		value: 0,
+// 		toJSON: function() {
+// 			return '[['+this.getValue()+']]';
+// 		},
+// 		setValue: function(value) {
+// 			this.value = value.replace(/\[\[(.*?)\]\]/g,'');
+// 		},
+
+
+// 	});
+// })(Berry,jQuery);

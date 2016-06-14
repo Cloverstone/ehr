@@ -1,37 +1,37 @@
 <div class="container">
   <div class="row fieldlist">
     <div class="col-sm-4">
-      <span>Unit:</span> {{data.patient_information_form.healthcare_facility}}
+      <span>Unit:</span> {{data.patient_information.healthcare_facility}}
     </div>
     <div class="col-sm-4">
       <span>Acct #:</span> {{data.misc.account}}
     </div>
     <div class="col-sm-4">
-      <span>DOB:</span> {{data.demographics.date_of_birth}}
+      <span>DOB:</span> {{data.patient_information.date_of_birth}}
     </div>
   </div>
 
   <div class="row fieldlist">
     <div class="col-sm-4">
-      <span>Name:</span> {{data.patient_information_form.first_name}} {{data.patient_information_form.last_name}}
+      <span>Name:</span> {{data.patient_information.first_name}} {{data.patient_information.last_name}}
     </div>
     <div class="col-sm-4">
-      <span>MR #:</span> {{data.patient_information_form.medical_record_number}}
+      <span>MR #:</span> {{data.patient_information.medical_record_number}}
     </div>
     <div class="col-sm-4">
-      <span>Wt:</span> {{data.patient_information_form.weight}}
+      <span>Wt:</span> {{data.patient_information.weight}}
     </div>
   </div>
 
   <div class="row fieldlist">
     <div class="col-sm-4">
-      <span>Doctor:</span> {{data.demographics.attending_physician}}
+      <span>Doctor:</span> {{data.patient_information.attending_physician}}
     </div>
     <div class="col-sm-4">
-      <span>Admit:</span> {{data.misc.admit}}
+      <span>Admit:</span> {{data.patient_information.admitted_on}}
     </div>
     <div class="col-sm-4">
-      <span>Ht:</span> {{data.patient_information_form.height}}
+      <span>Ht:</span> {{data.patient_information.height}}
     </div>
   </div>
 
@@ -43,7 +43,7 @@
 
   <div class="row fieldlist">
     <div class="col-sm-12">
-      <span>DIAGNOSIS:</span> {{data.patient_information_form.diagnosis}}
+      <span>DIAGNOSIS:</span> {{data.patient_information.diagnosis}}
     </div>
   </div>
 
