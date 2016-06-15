@@ -34,7 +34,7 @@
 		      DECKER HOSPITAL ELECTRONIC HEALTH RECORD
 		    </div>
 		    <div class="col-sm-1">
-		      <a href="#page=admin">Admin<a/>
+		      <a href="http://my.binghamton.edu/community/60" target="">Admin<a/>
 		    </div>
 		  </div>
 		</div>
@@ -82,10 +82,10 @@
 
 		<script type="text/javascript" src="js/bootstrap.full.berry.js"></script>
 		<script type="text/javascript" src="js/toolbox.js"></script>
-		<script type="text/javascript" src="js/data.js"></script>
+		<!--script type="text/javascript" src="js/data.js"></script!
+		<script type="text/javascript" src="js/forms.js"></script-->>
 		<script type="text/javascript" src="js/templates.js"></script>
 		<script type="text/javascript" src="js/resource.js"></script>
-		<script type="text/javascript" src="js/forms.js"></script>
 		<script type="text/javascript" src="js/parser.js"></script>
 
 
@@ -111,13 +111,27 @@
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 
 <script>	
-
-
+var scenarios = {};
+$.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/scenarios', success:function(data){
+scenarios = data;
+$.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/templates', success:function(data){
+for(var item in data){
+	templates[data[item].name]= Hogan.compile(data[item].data);
+}
+$.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/forms', success:function(data){
+	forms = {};
+  for(var i in data){forms[data[i].name]=data[i].data;}
 
 	session = JSON.parse(($.jStorage.get('session') || '{}'));
 	load = function (disableScroll) {
 		hashParams = QueryStringToHash(document.location.hash.substr(1) || '')
 		var page = hashParams['page'] || 'main';
+		if(hashParams['patient']){
+			data = _.find(scenarios,{id:parseInt(hashParams['patient'])}).data
+			// data = scenarios[hashParams['patient']].data;
+		}else{
+			data = {"scenarios": scenarios};
+		}
 		if(hashParams['page'] == 'patient_lab'){data.lab = _.find(data.labs.items,{name:hashParams['lab']}) }
 		$('#container').html(customRender(render(page, {data: $.extend(true, {}, data, session), hash: hashParams, session: session}), {data: $.extend(true, {}, data, session), hash: hashParams, session: session}));
 		if(!disableScroll)$('html, body').scrollTop(0);
@@ -141,6 +155,13 @@
 	}
 
 	// $('#cameraInput')[0].addEventListener('change', processFile , false);
+}})
+}})
+}})
+
+
+
+
 
 </script>
 

@@ -302,13 +302,13 @@ this.data =
 		"physician": "G. House",
 		"verified_by": "P. Reuther, RN"
 	}],
-"progress_notes": [
+"progress_notes": {"notes":[
 	{
-		"progress_note_date": "[1 Day Ago]",
-		"progress_note_time": "1245",
-		"progress_note_documentation_by": "K. Payne, RN",
-		"progress_note": "Patient returned from OR via stretcher at 1215.  Sleeping, but arousable.  Transferred self to bed.  Wife present.  Pt complained of pain 5/10.  Medicated with Toradol, awaiting results.  BS neg.  Dressings on abdomen clean, dry and intact."
-	}],
+		"date": "[1 Day Ago]",
+		"time": "1245",
+		"documented_by": "K. Payne, RN",
+		"note": "Patient returned from OR via stretcher at 1215.  Sleeping, but arousable.  Transferred self to bed.  Wife present.  Pt complained of pain 5/10.  Medicated with Toradol, awaiting results.  BS neg.  Dressings on abdomen clean, dry and intact."
+	}]},
 "report_of_operation":
 	{
 		"dictated_by": "Gregory House, MD",
@@ -454,7 +454,6 @@ this.data =
 "misc":
 	{
 		"account": "010001001",
-		// "admit": "Day 1",
 		"drug_allergies": "Amoxicillin"
 	},
 "labs": {"items":[
@@ -542,16 +541,16 @@ this.data =
 				"units": "K/UL",
 				"range": "0.0-0.1"
 			}],
-			'sets':[
+			"sets":[
 			{
 				"date":"[Admission]",
-				"data":['11.5 <flag>H</flag>', 4.5, 12.8, 46.0, 84.0, 27.5, 34, 13.4, 350, 7.9, 50, 40, 5, 2, 3, 2.0, 1.6, 0.2, 0.08, 0.12]
+				"data":["11.5 <flag>H</flag>", 4.5, 12.8, 46.0, 84.0, 27.5, 34, 13.4, 350, 7.9, 50, 40, 5, 2, 3, 2.0, 1.6, 0.2, 0.08, 0.12]
 			},			{
 				"date":"[Yesterday]",
-				"data":[9.0, 4.5, '10.9 <flag>L</flag>', 40.1, 84.0, 30.0, 36, 13, 300, 8.1, 44, 44, 0.2, 0, 0, 4.0, 4.0, 1.0, 0.0, 0.0]
+				"data":[9.0, 4.5, "10.9 <flag>L</flag>", 40.1, 84.0, 30.0, 36, 13, 300, 8.1, 44, 44, 0.2, 0, 0, 4.0, 4.0, 1.0, 0.0, 0.0]
 			},			{
 				"date":"[Today]",
-				"data":['13.0 <flag>H</flag>', 4.0, '10.1 <flag>L</flag>', '35.2 <flag>L</flag>', 86.1, 26.6, 33, 13.0, 250, 9.0, 62, 31, 6, 0, 0, 8.0, 4.0, 1.0, 0.0, 0.0]
+				"data":["13.0 <flag>H</flag>", 4.0, "10.1 <flag>L</flag>", "35.2 <flag>L</flag>", 86.1, 26.6, 33, 13.0, 250, 9.0, 62, 31, 6, 0, 0, 8.0, 4.0, 1.0, 0.0, 0.0]
 			}
 			]
 		},{
@@ -614,16 +613,16 @@ this.data =
 				"units":"U/L",
 				"range": "10-35"
 			}],
-			'sets':[
+			"sets":[
 			{
 				"date":"[Admission]",
-				"data":[144, '3.4 <flag>L</flag>', 104, '21 <flag>L</flag>', 65, 19, 0.8, 8.5, 7.8, '5.6 <flag>H</flag>', 0.5, 32, 106, 25]
+				"data":[144, "3.4 <flag>L</flag>", 104, "21 <flag>L</flag>", 65, 19, 0.8, 8.5, 7.8, "5.6 <flag>H</flag>", 0.5, 32, 106, 25]
 			},			{
 				"date":"[Yesterday]",
-				"data":[138, 3.8, 103, '23 <flag>23</flag>', 98, 12, 0.7, 8.9, 7.4, 5.0, 0.6, 28, 106, '']
+				"data":[138, 3.8, 103, "23 <flag>23</flag>", 98, 12, 0.7, 8.9, 7.4, 5.0, 0.6, 28, 106, ""]
 			},			{
 				"date":"[Today]",
-				"data":[139, 4.2, 105, 25, 92, 8, 0.9, 8.9, 7.0, 4.9, 0.4, 30, '', '']
+				"data":[139, 4.2, 105, 25, 92, 8, 0.9, 8.9, 7.0, 4.9, 0.4, 30, "", ""]
 			}
 			]
 		},
@@ -679,10 +678,10 @@ this.data =
 				"name":"Creatinine",
 				"normals": "60-110"
 			}],
-			'sets':[
+			"sets":[
 			{
 				"date":"[Admission]",
-				"data":['Yellow', 'Clear', 'Negative', 1.020, 5.0, 5.0, '13 mg/dl', 'Negative', 'Negative', 'Negative', 'Negative', 'Negative', 'Negative', '325 mOsm', '25 mEq/l', '63 mg/dl' ]
+				"data":["Yellow", "Clear", "Negative", 1.020, 5.0, 5.0, "13 mg/dl", "Negative", "Negative", "Negative", "Negative", "Negative", "Negative", "325 mOsm", "25 mEq/l", "63 mg/dl" ]
 			}
 		]
 	}]},
@@ -693,5 +692,8 @@ this.data =
 		"report": "Free intraperitoneal fluid and displacement of adjacent bowel in lower right quadrant of abdomen. Calcified appendicolith noted.",
 		"impression": "Ruptured appendix with peritonitis",
 		"dictated_by": "Dr. Omar Saheed"
+	},
+	"scenario": {
+		"enabled": true
 	}
 };

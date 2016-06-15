@@ -70,19 +70,18 @@ pages = {
 		var renderer = 'base';
 		if(typeof forms[hashParams.form] !== 'undefined'){
 			fields = forms[hashParams.form].fields;
-			atts = $.jStorage.get(hashParams.form);
+			// atts = $.jStorage.get(hashParams.form);
+			atts = $.extend(_.find(scenarios,{id:parseInt(hashParams['patient'])}).data[hashParams.form],$.jStorage.get(hashParams.form));
 			$('.header .col-sm-3').html(forms[hashParams.form].legend || 'FORM')
 		}else{
 			if(hashParams.form == 'scenario'){
-
+				data = _.find(scenarios,{id:parseInt(hashParams['patient'])}).data;
 				renderer = 'tabs';
 				fields = forms;
 			}else{
 				fields = getItems(data);
 			}
-
 			atts = data;
-
 		}
 
 		Berry.btn.clear = {
