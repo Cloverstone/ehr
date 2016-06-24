@@ -240,7 +240,7 @@ var QueryStringToHash = function QueryStringToHash  (query) {
 
 (function(b, $){
 	b.register({ type: 'check_collection',
-		defaults: {container: 'span'},
+		defaults: {container: 'span', acceptObject: true},
 		create: function() {
 			this.options = b.processOpts.call(this.owner, this.item, this).options;
 
