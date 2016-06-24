@@ -34,7 +34,7 @@
 		      DECKER HOSPITAL ELECTRONIC HEALTH RECORD
 		    </div>
 		    <div class="col-sm-1">
-		      <a href="http://my.binghamton.edu/community/60" target="">Admin<a/>
+		      <a href="#" id="submit" target="">Submit<a/>
 		    </div>
 		  </div>
 		</div>
@@ -159,6 +159,25 @@ $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/forms', success:fun
 }})
 }})
 }})
+
+$("#submit").on('click', function(e){
+e.preventDefault();
+if(hashParams.patient){
+	$().berry({legend: "Submit", fields: {"Your Name": {required:true}}}).on('save', function(){
+		this.trigger('saved');
+		$.ajax({
+			method: "post",
+			url: 'https://mercury.binghamton.edu/decker_ehr/add/results',
+			data: {user:this.toJSON().your_name, name: hashParams['patient'], data: JSON.stringify($.jStorage.get(hashParams.patient))},
+		 success:function(data){
+
+		}})
+
+	})
+}else{
+	$().berry({actions:['cancel'],legend: "Submit", fields: {"warning":{type:"raw", label:false, value:"Please Choose a Patient first." }}})
+}
+})
 
 
 
