@@ -120,6 +120,7 @@ for(var item in data){
 }
 $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/forms', success:function(data){
 	forms = {};
+
   for(var i in data){forms[data[i].name]=data[i].data;}
 
 	session = JSON.parse(($.jStorage.get('session') || '{}'));

@@ -63,8 +63,7 @@ var forms = {};
 }}
 
 	forms.vital_signs = {"legend": "Vital Signs", "fields":{
-			"items": {"multiple":{"duplicate": true}, "label": false, "fields":{
-
+	"items": {"multiple":{"duplicate": true}, "label": false, "fields":{
 		"Blood Pressure": {"fields": {
 			"Systolic": {},
 			"Diastolic": {},
@@ -515,6 +514,25 @@ forms.medication_administration_reco = {"legend": "Medication", "fields":{
 }}
 
 forms.labs = {"legend": "Labs", "fields":{	
+
+	"Items": {"multiple":{"duplicate": true}, "label": false, "fields":{
+		"Name": "",
+		"Label": "",
+		"n3": {"parsable": false,"offset": "2","columns": "10", "label": "Sets", "fields":{}},
+
+		"Sets": {"offset": "2","columns": "10", "multiple": {"duplicate": true}, "label": false, "fields":{
+				"Date": {},
+				"Data": {"type":"tagsEditor", "acceptObject": true}
+		}},
+		"n2": {"parsable": false,"offset": "2", "columns": "10", "label": "Fields", "fields":{}},
+		"Fields": {"offset": "2", "columns": "10", "multiple": {"duplicate": true}, "label": false, "fields":{
+				"Name": {},
+				"Units": {},
+				"Range": {},
+				"Normals": {}
+		}}
+	}}
+	forms.scenario = {"legend": "Labs", "fields":{	
 
 	"Items": {"multiple":{"duplicate": true}, "label": false, "fields":{
 		"Name": "",

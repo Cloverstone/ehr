@@ -68,13 +68,22 @@ pages = {
 		var fields = {};
 		var atts = {};
 		var renderer = 'base';
+
 		if(typeof forms[hashParams.form] !== 'undefined'){
 			fields = forms[hashParams.form].fields;
 			// atts = $.jStorage.get(hashParams.form);
-			atts = $.extend(_.find(scenarios,{id:parseInt(hashParams['patient'])}).data[hashParams.form],$.jStorage.get(hashParams.form));
+			debugger;
+			var stored = $.jStorage.get(hashParams.patient) || {};
+			atts = $.extend(_.find(scenarios,{id:parseInt(hashParams['patient'])}).data[hashParams.form],stored[hashParams.form]);
+
+			//if multiple instance type form
+			if(_.keys(fields).length == 1 && fields[_.keys(fields)[0]].multiple){
+				fields[_.keys(fields)[0]].multiple = {duplicate: false}
+			}
+
 			$('.header .col-sm-3').html(forms[hashParams.form].legend || 'FORM')
 		}else{
-			if(hashParams.form == 'scenario'){
+			if(hashParams.form == 'scenario2'){
 				data = _.find(scenarios,{id:parseInt(hashParams['patient'])}).data;
 				renderer = 'tabs';
 				fields = forms;
@@ -95,14 +104,27 @@ pages = {
 		};
 
 		$('#form').berry({actions:['save', 'cancel', 'clear'] ,renderer: renderer, flatten: false, attributes: atts, fields: fields}).on('save', function() {
-			$.jStorage.set(hashParams.form, this.toJSON())
+				var stored = $.jStorage.get(hashParams.patient) || {};
+
+				//if multiple instance type form
+				if(_.keys(this.options.fields).length == 1 && fields[_.keys(this.options.fields)[0]].multiple && !fields[_.keys(this.options.fields)[0]].multiple.duplicate){
+					stored[hashParams.form] = stored[hashParams.form] || [];
+					stored[hashParams.form].push(this.toJSON());
+				}else{
+					stored[hashParams.form] = this.toJSON();
+				}
+
+				$.jStorage.set(hashParams.patient, stored);
 		}).on('cancel', function() {
 			window.history.back();
 		}).on('clear', function() {
-			$.jStorage.set(hashParams.form, {});
-			// this.load($.jStorage.get(hashParams.form))
+			var stored = $.jStorage.get(hashParams.patient) || {};
+			stored[hashParams.form] = null;
+			$.jStorage.set(hashParams.patient, stored);
+
 			window.location.reload();
 		});
 	}
+
 
 };

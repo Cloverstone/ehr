@@ -137,11 +137,10 @@
 			if(this.onchange !== undefined){ this.$el.on('input',this.onchange);}
 			this.$el.on('input', $.proxy(function(){this.trigger('change');}, this));
 			if($.fn.tagEditor){
-				this.$el.tagEditor();
+				this.$el.tagEditor({removeDuplicates: false});
 			}
 		},
 		setValue: function(value) {
-			// debugger;
 			if(typeof value == 'object' && this.acceptObject){
 				value = value.join(', ');
 			}
@@ -151,7 +150,7 @@
 			this.value = value;
 			// this.$el.importTags(value);
 			this.$el.tagEditor('destroy');
-			this.$el.tagEditor({ initialTags: value.split(',')});
+			this.$el.tagEditor({ initialTags: value.split(','),removeDuplicates: false});
 
 			// return this.$el.val(value);
 		},

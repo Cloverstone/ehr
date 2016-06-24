@@ -1,4 +1,3 @@
-this.data =
 {
 "patient_information":
 	{
@@ -352,7 +351,7 @@ this.data =
 },
 "discharge_summary": [],
 "plan_of_care": [],
-"medication_administration_record":
+"medication_admin_record":
 	{
 		"scheduled": [
 		{
@@ -696,4 +695,4 @@ this.data =
 	"scenario": {
 		"enabled": true
 	}
-};
+}

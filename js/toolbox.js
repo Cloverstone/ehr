@@ -1,3 +1,4 @@
+
 debug=true;
 alert = function(value){ if(debug){console.log(value);} };
 function render(template, data){
@@ -310,7 +311,11 @@ var QueryStringToHash = function QueryStringToHash  (query) {
 			return this.$el.is(':checked');
 		},
 	});
+
 })(Berry, jQuery);
+
+
+
 
 
 
