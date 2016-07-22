@@ -160,7 +160,7 @@ $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/forms', success:fun
 }})
 }})
 
-$("#submit").on('click', function(e){
+$("body").on('click','#submit', function(e){
 e.preventDefault();
 if(hashParams.patient){
 	$().berry({legend: "Submit", fields: {"Your Name": {required:true}}}).on('save', function(){
