@@ -262,3 +262,12 @@ div.tagsinput div { display:block; float: left; }
 .ui-widget-content a { color: #46799b; }
 .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { background: #e0eaf1; }
 .ui-helper-hidden-accessible { display: none; }
+
+
+.greenHeading{
+
+    display: block;
+    background: #b6d7a8;
+    padding: 4px;
+
+}
