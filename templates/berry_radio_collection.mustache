@@ -35,7 +35,7 @@
 
 					{{#options}}
 					<td style="text-align:center">
-						<input data-label="{{label}}" name="{{name}}" value="{{value}}" {{^isEnabled}}readonly{{/isEnabled}} type="radio" {{#selected}}checked=checked{{/selected}} >
+						<input data-label="{{label}}" name="{{item.name}}{{name}}" value="{{value}}" {{^isEnabled}}readonly{{/isEnabled}} type="radio" {{#selected}}checked=checked{{/selected}} >
 					</td>
 					{{/options}}
 				</tr>
