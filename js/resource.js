@@ -72,7 +72,6 @@ pages = {
 		if(typeof forms[hashParams.form] !== 'undefined'){
 			fields = forms[hashParams.form].fields;
 			// atts = $.jStorage.get(hashParams.form);
-			debugger;
 			var stored = $.jStorage.get(hashParams.patient) || {};
 			atts = $.extend(_.find(scenarios,{id:parseInt(hashParams['patient'])}).data[hashParams.form],stored[hashParams.form]);
 

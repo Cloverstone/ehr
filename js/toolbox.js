@@ -146,6 +146,7 @@ var QueryStringToHash = function QueryStringToHash  (query) {
 
 (function(b, $){
 	b.register({ type: 'radio_collection',
+		acceptObject: true,
 		create: function() {
 			this.options = b.processOpts.call(this.owner, this.item, this).options;
 			return b.render('berry_' + (this.elType || this.type), this);
@@ -161,7 +162,6 @@ var QueryStringToHash = function QueryStringToHash  (query) {
 		getValue: function() {
 			var values = {}
 			for(var label in this.labels){
-				// debugger;
 				var selected = this.self.find('[name="'+this.labels[label].name+'"][type="radio"]:checked').data('label');
 				for(var i in this.item.options) {
 					if(this.item.options[i].label == selected) {
