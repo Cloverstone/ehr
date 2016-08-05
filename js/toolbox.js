@@ -50,7 +50,9 @@ function customRender(content, scope){
   		}
   		match[1] = match[1].replace(/Admission/gi, '{{patient_information.admitted_on}}');
   		// match[1] = match[1].replace(/DOB/gi, '{{patient_information.date_of_birth}}');
+  		match[1] = match[1].replace(/\{\{&gt;/gi, '{{>');
   		match[1] = customRender(Hogan.compile(match[1]).render(scope.data, templates), scope);	
+
   		var converted = {};
   		if(match[1].indexOf('&')>=0){
   			 var parts = match[1].split('&');
@@ -60,8 +62,11 @@ function customRender(content, scope){
   		else{
   			converted = Date.create(match[1]);
   		}
-  			 if(typeof converted == "string" || converted instanceof Date){
+  			 if((typeof converted == "string" || converted instanceof Date) && converted !== "Invalid date" && converted !== "Invalid Date"){
   			 	temp = moment(converted).format(format);
+  			 	if(converted == "Invalid Date"){
+	  			 	temp = match[1];
+  			 	}
   			 }else{
   			 	temp = match[1];
   			 }
