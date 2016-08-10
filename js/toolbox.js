@@ -1,6 +1,6 @@
 
-debug=false;
-alert = function(value){ if(debug){console.log(value);} };
+debug=true;
+// alert = function(value){ if(debug){console.log(value);} };
 function render(template, data){
 	if(typeof templates[template] === 'undefined'){
 		if($('[name='+template+']').length > 0){
