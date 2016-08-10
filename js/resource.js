@@ -29,9 +29,10 @@ pages = {
 				return this.success
 			}
 		});
-
+		patient = false;
 		$('[data-order-text]').on('click', function(e){
-			$().berry({legend: 'Confirmation', fields: [
+
+			$().berry({name:'validate',legend: 'Confirmation', fields: [
 				{label: 'Patient/Date of Birth', type: 'qrcode', name:'patient', required: true, help: e.currentTarget.dataset.name},
 				{label: 'Prescription', type: 'qrcode', name:'prescription', required: true,help: e.currentTarget.dataset.orderText},
 				{label: 'Confirm', value: getNodeIndex(e.currentTarget.parentNode), type: 'hidden', required: true}
@@ -52,6 +53,8 @@ pages = {
 			.on('saved', function(){load(true)})
 			.on('change:patient', function(item){
 				qrcode.callback = $.proxy(function(data){
+					debugger;
+					patient = data;
 					this.fields.patient.setValue(data)
 				}, this)
 				processFile.call(this.findByID(item.id).$el[0]);
@@ -62,7 +65,11 @@ pages = {
 				},this)
 				processFile.call(this.findByID(item.id).$el[0]);
 			})
+			if(patient){
+				Berries.validate.fields.patient.setValue(patient);
+			}
 		})
+
 	},
 	form: function(){
 		var fields = {};
