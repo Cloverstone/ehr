@@ -53,8 +53,8 @@ pages = {
 			.on('saved', function(){load(true)})
 			.on('change:patient', function(item){
 				qrcode.callback = $.proxy(function(data){
-					debugger;
 					patient = data;
+					alert(data);
 					this.fields.patient.setValue(data)
 				}, this)
 				processFile.call(this.findByID(item.id).$el[0]);
