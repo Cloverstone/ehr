@@ -31,13 +31,56 @@ pages = {
 		});
 		patient = false;
 		$('[data-order-text]').on('click', function(e){
-
-			$().berry({name:'validate',legend: 'Confirmation', fields: [
+			var fields = [
 				{label: 'Patient/Date of Birth', type: 'qrcode', name:'patient', required: true, help: e.currentTarget.dataset.name},
 				{label: 'Prescription', type: 'qrcode', name:'prescription', required: true,help: e.currentTarget.dataset.orderText},
 				{label: 'Confirm', value: getNodeIndex(e.currentTarget.parentNode), type: 'hidden', required: true}
-			]}).on('save', function() {
+			]
+			if(e.currentTarget.dataset.im){
+				fields.push({label: "Injection Location", required:true, options:[
+					"right deltoid",
+					"left deltoid",
+					"right ventralgluteal",
+					"left ventralgluteal",
+					"right vastus lateralis",
+					"left vastus lateralis",
+					"right dorsal gluteal",
+					"left dorsal gluteal"
+				]})
+			}
+			if(e.currentTarget.dataset.sq){
+				fields.push({label: "Injection Location", required:true, options:[
+					"back of right arm",
+					"back of left arm",
+					"abdomin - right side",
+					"abdomin - left side",
+					"other"
+				]})
+				fields.push({label: 'Other', show:{ "matches": {
+					"name": "insulin_administration_location",
+					"value": "other"
+				}}})
+			}
+			debugger;
+			if(e.currentTarget.dataset.insulin){
+				fields.push({label: "Chemstrip value",help:"units", required:true})
+				fields.push({label: "Regular Insulin Sliding Scale",help:"units", type:'select', required:true, min: 0, max: 12, default:'Patient Refused'})
+				fields.push({label: "Insulin administration location", required:true, options:[
+					"back of right arm",
+					"back of left arm",
+					"abdomin - right side",
+					"abdomin - left side",
+					"other"
+				]})				
+				fields.push({label: 'Other', show:{ "matches": {
+					"name": "insulin_administration_location",
+					"value": "other"
+				}}})
+
+			}
+			$().berry({name:'validate',legend: 'Confirmation', fields: fields}).on('save', function() {
 				if( this.validate() ) {
+
 					session.medication_administration_record = session.medication_administration_record || {scheduled:[]};
 					var position = parseInt(this.toJSON().confirm, 10);
 					var length = session.medication_administration_record.scheduled.length;
@@ -46,6 +89,8 @@ pages = {
 							session.medication_administration_record.scheduled[i] = {has_been_administered: false};
 					}
 					session.medication_administration_record.scheduled[position-1] = {has_been_administered: true};
+
+					session.medication_administration_record.scheduled[position-1].notes = this.toJSON();
 					store();
 					this.trigger('saved');
 				}

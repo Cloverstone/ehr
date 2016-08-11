@@ -140,6 +140,8 @@ $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/forms', success:fun
 			data = {"scenarios": scenarios};
 		}
 		if(hashParams['page'] == 'patient_lab'){data.lab = _.find(data.labs.items,{name:hashParams['lab']}) }
+		if(hashParams['page'] == 'patient_procedure'){data.procedure = _.find(data.procedures.procedure,{procedure:hashParams['procedure']}) }
+
 		$('#container').html(customRender(render(page, {data: $.extend(true, {}, data, session), hash: hashParams, session: session}), {data: $.extend(true, {}, data, session), hash: hashParams, session: session}));
 		if(!disableScroll)$('html, body').scrollTop(0);
 
