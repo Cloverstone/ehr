@@ -114,6 +114,12 @@
 var scenarios = {};
 $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/scenarios', success:function(data){
 scenarios = data;
+scenarios =_.map(scenarios, function(data){
+    data.rank = parseInt(data.name) || 1000;
+    return data;
+})
+scenarios = _.sortBy(scenarios, 'rank');
+
 $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/templates', success:function(data){
 for(var item in data){
 	templates[data[item].name]= Hogan.compile(data[item].data);
