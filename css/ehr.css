@@ -271,3 +271,7 @@ div.tagsinput div { display:block; float: left; }
     padding: 4px;
 
 }
+
+.text-muted{
+    color:#ddd;
+}
