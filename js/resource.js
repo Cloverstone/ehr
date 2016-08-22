@@ -61,7 +61,6 @@ pages = {
 					"value": "other"
 				}}})
 			}
-			debugger;
 			if(e.currentTarget.dataset.insulin){
 				fields.push({label: "Chemstrip value",help:"units", required:true})
 				fields.push({label: "Regular Insulin Sliding Scale",help:"units", type:'select', required:true, min: 0, max: 12, default:'Patient Refused'})
@@ -81,16 +80,16 @@ pages = {
 			$().berry({name:'validate',legend: 'Confirmation', fields: fields}).on('save', function() {
 				if( this.validate() ) {
 
-					session.medication_administration_record = session.medication_administration_record || {scheduled:[]};
+					session.medication_admin_record = session.medication_admin_record || {scheduled:[]};
 					var position = parseInt(this.toJSON().confirm, 10);
-					var length = session.medication_administration_record.scheduled.length;
+					var length = session.medication_admin_record.scheduled.length;
 					if(position > length) {
 						for(var i = length; i < position; i++)					
-							session.medication_administration_record.scheduled[i] = {has_been_administered: false};
+							session.medication_admin_record.scheduled[i] = {has_been_administered: false};
 					}
-					session.medication_administration_record.scheduled[position-1] = {has_been_administered: true};
+					session.medication_admin_record.scheduled[position-1] = {has_been_administered: true};
 
-					session.medication_administration_record.scheduled[position-1].notes = this.toJSON();
+					session.medication_admin_record.scheduled[position-1].notes = this.toJSON();
 					store();
 					this.trigger('saved');
 				}

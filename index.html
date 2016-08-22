@@ -122,7 +122,11 @@ scenarios = _.sortBy(scenarios, 'rank');
 
 $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/templates', success:function(data){
 for(var item in data){
-	templates[data[item].name]= Hogan.compile(data[item].data);
+	try{
+		templates[data[item].name]= Hogan.compile(data[item].data);
+	}catch(e){
+		console.log(e);
+	}
 }
 $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/forms', success:function(data){
 	forms = {};
