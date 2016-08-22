@@ -111,7 +111,8 @@
 <script type="text/javascript" src="js/moment.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 
-<script>	
+<script>
+var pageSession = {};
 var scenarios = {};
 $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/scenarios', success:function(data){
 scenarios = data;
@@ -138,6 +139,10 @@ $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/forms', success:fun
 	load = function (disableScroll) {
 		hashParams = QueryStringToHash(document.location.hash.substr(1) || '')
 		var page = hashParams['page'] || 'main';
+		if(pageSession.page !== page){
+			pageSession = {page:page};
+			// pageSession.data = {};
+		}
 		if(hashParams['patient']){
 			data = _.find(scenarios,{id:parseInt(hashParams['patient'])}).data
 			// data = scenarios[hashParams['patient']].data;
