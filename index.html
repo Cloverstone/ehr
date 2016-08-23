@@ -22,7 +22,7 @@
 	  	<a href="#" class="hospital-banner" style="text-decoration:none">
 	    	<span class="bu-dark-green">DECKER</span> <span class="bu-light-green">HOSPITAL</span>
 	  	</a>	    	    
-	  	<a href="#" class="btn pull-right btn-default" style="margin:15px" onClick="window.history.back();">Back</a>
+	  	<a href="javascript:history.go(-1)" class="btn pull-right btn-default" style="margin:15px" ">Back</a>
 
     </div><!-- /.container -->
 
@@ -36,7 +36,10 @@
 		    </div>
 		    <div class="col-sm-1">&nbsp;
 <!-- 		      <a href="#" id="submit" target="">Submit<a/>
- -->		    </div>
+ -->		
+ 	  	<a href="javascript:if(confirm('Are you sure you want to reset this patient, this can not be undone?')){clear();}" style="margin:-10px" ">Reset&nbsp;Patient</a>
+    
+				</div>
 		  </div>
 		</div>
 

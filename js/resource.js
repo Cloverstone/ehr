@@ -34,7 +34,8 @@ pages = {
 				{label: 'Patient/Date of Birth', type: 'qrcode', name:'patient', required: true, help: e.currentTarget.dataset.name},
 				{label: 'Prescription', type: 'qrcode', name:'prescription', required: true,help: e.currentTarget.dataset.orderText},
 				{label: 'Initials', required:true},
-				{label: 'Confirm', value: getNodeIndex(e.currentTarget.parentNode), type: 'hidden', required: true}
+				{label: 'Confirm', value: getNodeIndex(e.currentTarget.parentNode), type: 'hidden', required: true},
+				{name: 'type', type: 'hidden', value:e.currentTarget.dataset.type}
 			]
 			if(e.currentTarget.dataset.im){
 				fields.push({label: "Injection Location", required:true, options:[
@@ -80,16 +81,20 @@ pages = {
 			$().berry({name:'validate',legend: 'Confirmation', fields: fields}).on('save', function() {
 				if( this.validate() ) {
 					var values = this.toJSON();
-					session.medication_admin_record = session.medication_admin_record || {scheduled:[]};
+
+// debugger;
+					session.medication_admin_record = session.medication_admin_record || {scheduled:[], prn:[]};
 					var position = parseInt(values.confirm, 10);
-					var length = session.medication_admin_record.scheduled.length;
+					var length = session.medication_admin_record[values.type].length;
 					if(position > length) {
 						for(var i = length; i < position; i++)					
-							session.medication_admin_record.scheduled[i] = {has_been_administered: false};
+							session.medication_admin_record[values.type][i] = {has_been_administered: false};
 					}
-					session.medication_admin_record.scheduled[position-1] = {has_been_administered: true, initials: values.initials, time: moment().format('LT')};
+					session.medication_admin_record[values.type][position-1] = {has_been_administered: true, initials: values.initials, time: moment().format('LT')};
 
-					session.medication_admin_record.scheduled[position-1].notes = this.toJSON();
+					session.medication_admin_record[values.type][position-1].notes = this.toJSON();
+
+
 					store();
 					this.trigger('saved');
 				}
