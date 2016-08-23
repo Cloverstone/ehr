@@ -92,13 +92,27 @@ function getNodeIndex(node) {
   return index;
 }		
 function store(){
-	$.jStorage.set('session', JSON.stringify(session));
+	// $.jStorage.set('session', JSON.stringify(session));
+
+
+	var stored = $.jStorage.get(hashParams.patient) || {};
+	stored.session = session;
+	$.jStorage.set(hashParams.patient, stored);
 }
 function clear(){
-	$.jStorage.set('session', JSON.stringify({}));
+	// $.jStorage.set('session', JSON.stringify({}));
+	// for(var i in forms){
+	// 	$.jStorage.set(i, {});
+	// }
+
+	var stored = $.jStorage.get(hashParams.patient) || {};
+	stored.session = {};
 	for(var i in forms){
-		$.jStorage.set(i, {});
+		stored[i]= {};
 	}
+	$.jStorage.set(hashParams.patient, stored);
+
+
 	document.location.reload();
 }
 

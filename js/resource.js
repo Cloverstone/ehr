@@ -82,7 +82,6 @@ pages = {
 				if( this.validate() ) {
 					var values = this.toJSON();
 
-// debugger;
 					session.medication_admin_record = session.medication_admin_record || {scheduled:[], prn:[]};
 					var position = parseInt(values.confirm, 10);
 					var length = session.medication_admin_record[values.type].length;
@@ -126,7 +125,6 @@ pages = {
 
 		if(typeof forms[hashParams.form] !== 'undefined'){
 			fields = forms[hashParams.form].fields;
-			// atts = $.jStorage.get(hashParams.form);
 			var stored = $.jStorage.get(hashParams.patient) || {};
 			atts = $.extend(_.find(scenarios,{id:parseInt(hashParams['patient'])}).data[hashParams.form],stored[hashParams.form]);
 

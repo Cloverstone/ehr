@@ -138,7 +138,7 @@ $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/forms', success:fun
 
   for(var i in data){forms[data[i].name]=data[i].data;}
 
-	session = JSON.parse(($.jStorage.get('session') || '{}'));
+	// session = JSON.parse(($.jStorage.get('session') || '{}'));
 	load = function (disableScroll) {
 		hashParams = QueryStringToHash(document.location.hash.substr(1) || '')
 		var page = hashParams['page'] || 'main';
@@ -147,11 +147,15 @@ $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/forms', success:fun
 			// pageSession.data = {};
 		}
 		if(hashParams['patient']){
+			var info = $.jStorage.get(hashParams['patient']) || {};
+			session = info.session || {};
 			data = _.find(scenarios,{id:parseInt(hashParams['patient'])}).data
 			// data = scenarios[hashParams['patient']].data;
 		}else{
+			session = {};
 			data = {"scenarios": scenarios};
 		}
+
 		if(hashParams['page'] == 'patient_lab'){data.lab = _.find(data.labs.items,{name:hashParams['lab']}) }
 		if(hashParams['page'] == 'patient_procedure'){data.procedure = _.find(data.procedures.procedure,{procedure:hashParams['procedure']}) }
 
