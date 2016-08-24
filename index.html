@@ -124,6 +124,17 @@ scenarios =_.map(scenarios, function(data){
     return data;
 })
 scenarios = _.sortBy(scenarios, 'rank');
+debugger;
+for(var s in scenarios){
+	try{
+		// templates[data[item].name]= Hogan.compile(data[item].data);
+		if(typeof scenarios[s].data == 'string') {
+			scenarios[s].data = JSON.parse(scenarios[s].data)
+		}
+	}catch(e){
+		console.log(e);
+	}
+}
 
 $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/templates', success:function(data){
 for(var item in data){
