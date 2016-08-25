@@ -146,7 +146,12 @@ for(var item in data){
 $.ajax({url: 'https://mercury.binghamton.edu/decker_ehr/list/forms', success:function(data){
 	forms = {};
 
-  for(var i in data){forms[data[i].name]=data[i].data;}
+  for(var i in data){
+  	forms[data[i].name]=data[i].data;
+  	if(typeof forms[data[i].name] == 'string'){
+  		forms[data[i].name] = JSON.parse(forms[data[i].name]);
+  	}
+  }
 
 	// session = JSON.parse(($.jStorage.get('session') || '{}'));
 	load = function (disableScroll) {
